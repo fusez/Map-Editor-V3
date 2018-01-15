@@ -1,0 +1,38 @@
+#define MODELVIEW_UPDATE_INTERVAL_MS \
+    100
+
+#define MODELVIEW_ROTATE_ADD_1 \
+    1.0
+
+#define MODELVIEW_ROTATE_ADD_2 \
+    10.0
+
+#define MODELVIEW_ZOOM_ADD_1 \
+    0.1
+
+#define MODELVIEW_ZOOM_ADD_2 \
+    0.5
+
+#define MODELVIEW_SPEED_ADD_1 \
+    1.0
+
+#define MODELVIEW_SPEED_ADD_2 \
+    5.0
+
+#define MODELVIEW_VEHCOL_ADD_1 \
+    1
+
+#define MODELVIEW_VEHCOL_ADD_2 \
+    10
+
+#define MAX_MODELVIEW_SPEED \
+    15.0
+
+#define MIN_MODELVIEW_SPEED \
+    -MAX_MODELVIEW_SPEED
+
+#define MAX_MODELVIEW_ZOOM \
+    4.0
+
+#define MIN_MODELVIEW_ZOOM \
+    0

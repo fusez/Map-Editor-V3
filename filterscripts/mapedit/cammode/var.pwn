@@ -1,0 +1,16 @@
+enum CAMMODE_DATA {
+    bool:  CAMMODE_DATA_TOGGLE,
+    bool:  CAMMODE_DATA_MOVING,
+    Float: CAMMODE_DATA_MULTIPLIER,
+           CAMMODE_DATA_POID,
+    bool:  CAMMODE_DATA_SPAWN_SAVED,
+    Float: CAMMODE_DATA_SPAWN_X,
+    Float: CAMMODE_DATA_SPAWN_Y,
+    Float: CAMMODE_DATA_SPAWN_Z
+}
+
+new
+    g_CamModeData[MAX_PLAYERS][CAMMODE_DATA],
+    g_CamModeTimer = INVALID_TIMER_ID
+;
+

@@ -1,0 +1,11 @@
+#define INVALID_MODSHOP_ID \
+    -1
+
+#define MAX_MODSHOPNAME_LEN \
+    17
+
+enum {
+    MODSHOP_TRANSFENDER,
+    MODSHOP_LOCOLOW,
+    MODSHOP_WHEELARCH
+}

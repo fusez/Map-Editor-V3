@@ -1,0 +1,5 @@
+#define MAX_PLAYERATTACH_INDEX \
+    10
+
+#define INVALID_PLAYERATTACH_INDEX \
+    -1

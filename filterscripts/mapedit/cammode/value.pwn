@@ -1,0 +1,23 @@
+#define CAMMODE_UPDATE_INTERVAL_MS \
+    100 //ms
+
+#define CAMMODE_OBJECT_MODEL \
+    19300
+
+#define CAMMODE_MULTIPLIER_ADD \
+    0.05
+
+#define CAMMODE_MULTIPLIER_LIMIT \
+    1.0
+
+#define CAMMODE_SPEED_FAST \
+    200.0
+
+#define CAMMODE_SPEED_NORMAL \
+    50.0
+
+#define CAMMODE_SPEED_SLOW \
+    10.0
+
+#define CAMMODE_MOVE_DISTANCE \
+    9999.0

@@ -1,0 +1,8 @@
+#define MAX_CATEGORY_NAME_LEN \
+    20
+
+#define INVALID_CATEGORY_ID \
+    0
+
+#define INVALID_CATEGORY_BIND_ID \
+    0

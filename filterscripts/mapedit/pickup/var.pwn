@@ -1,0 +1,13 @@
+enum PICKUP_DATA {
+    bool:  PICKUP_DATA_ISVALID,
+           PICKUP_DATA_MODEL,
+    Float: PICKUP_DATA_X,
+    Float: PICKUP_DATA_Y,
+    Float: PICKUP_DATA_Z,
+           PICKUP_DATA_COMMENT[MAX_COMMENT_LEN+1 char],
+    Float: PICKUP_DATA_MEMORY_X,
+    Float: PICKUP_DATA_MEMORY_Y,
+    Float: PICKUP_DATA_MEMORY_Z
+}
+
+new g_PickupData[MAX_PICKUPS][PICKUP_DATA];

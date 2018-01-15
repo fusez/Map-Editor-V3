@@ -1,0 +1,5 @@
+#define EDITMARKER_MAPICONID \
+    99
+
+#define EDITMARKER_MODELID \
+    19198

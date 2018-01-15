@@ -1,0 +1,10 @@
+enum OFFSETEDIT_DATA {
+    bool:  OFFSETEDIT_DATA_TOGGLE,
+           OFFSETEDIT_DATA_MODE,
+    Float: OFFSETEDIT_DATA_MULTIPLIER
+}
+
+new
+    g_OffsetEditData[MAX_PLAYERS][OFFSETEDIT_DATA],
+    g_OffsetEditTimer = INVALID_TIMER_ID
+;
