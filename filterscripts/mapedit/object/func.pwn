@@ -376,7 +376,7 @@ ShowObjectDialog(playerid, dialogid) {
                             case MATERIALINDEX_TYPE_TEXTURE: {
                                 new
                                     textureid = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_TEXTURE][materialindex],
-                                    color_argb = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_COLOR],
+                                    color_argb = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_COLOR][materialindex],
                                     color_rgb = ARGBtoRGB(color_argb)
                                 ;
 
@@ -390,7 +390,7 @@ ShowObjectDialog(playerid, dialogid) {
                             }
                             case MATERIALINDEX_TYPE_TEXT: {
                                 new
-                                    color_argb = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_FONTCOLOR],
+                                    color_argb = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_FONTCOLOR][materialindex],
                                     color_rgb = ARGBtoRGB(color_argb)
                                 ;
 
