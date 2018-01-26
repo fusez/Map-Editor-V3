@@ -141,7 +141,7 @@ GetModelCacheIndex(modelid) {
     return INVALID_ARRAY_INDEX;
 }
 
-stock GetModelName(modelid, name[], name_size) {
+GetModelName(modelid, name[], name_size) {
     new cache_index = GetModelCacheIndex(modelid);
     if( cache_index == INVALID_ARRAY_INDEX ) {
         return format(name, name_size, "Unknown Model"), 0;

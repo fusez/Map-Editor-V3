@@ -13,8 +13,10 @@ enum { // Player Textdraws
     PlayerText: SELECTLIST_PTD_PAGE,                              // Current Page / Input Button
     PlayerText: SELECTLIST_PTD_SEARCH,                            // Current Search / Input Button
     PlayerText: SELECTLIST_PTD_ID_COL,                            // ID Column
+    PlayerText: SELECTLIST_PTD_MODELID_COL,                       // Model ID Column
     PlayerText: SELECTLIST_PTD_COMMENT_COL,                       // Comment Column
     PlayerText: SELECTLIST_PTD_ID_ROW      [MAX_SELECTLIST_ROWS], // ID Row
+    PlayerText: SELECTLIST_PTD_MODELID_ROW [MAX_SELECTLIST_ROWS], // Model ID Row
     PlayerText: SELECTLIST_PTD_COMMENT_ROW [MAX_SELECTLIST_ROWS], // Comment Row
                 MAX_SELECTLIST_PTDS
 }

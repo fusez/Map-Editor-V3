@@ -24,5 +24,7 @@ new
     g_SearchString        [MAX_SEARCH_LEN+1],
     g_CategoryNameString  [MAX_CATEGORY_NAME_LEN+1],
     g_TextureTXDString    [MAX_TEXTURE_TXD+1],
-    g_TextureNameString   [MAX_TEXTURE_NAME+1]
+    g_TextureNameString   [MAX_TEXTURE_NAME+1],
+    g_ModelColorString    [MAX_MODELCOLOR_NAMELEN+1],
+    g_VehColorString      [MAX_VEHCOLOR_NAMELEN+1]
 ;

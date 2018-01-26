@@ -4,8 +4,8 @@ public OnFilterScriptInit() {
             continue;
         }
 
-        if( GetVehicleModelName(GetVehicleModel(vehicleid), g_CommentString, MAX_COMMENT_LEN+1) ) {
-            strpack(g_VehicleData[vehicleid-1][VEHICLE_DATA_COMMENT], g_CommentString, MAX_COMMENT_LEN+1); // Set Vehicle Comment
+        if( GetVehicleModelName(GetVehicleModel(vehicleid), g_CommentString, sizeof g_CommentString) ) {
+            strpack(g_VehicleData[vehicleid-1][VEHICLE_DATA_COMMENT], g_CommentString, sizeof g_CommentString); // Set Vehicle Comment
         }
 
         g_VehicleData[vehicleid-1][VEHICLE_DATA_COLOR_1] = INVALID_COLOR_ID;
@@ -253,6 +253,10 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) {
                 }
                 case LISTITEM_VEHICLE_COMMENT: {
                     return ShowVehicleDialog(playerid, DIALOGID_VEHICLE_COMMENT), 1;
+                }
+                case LISTITEM_VEHICLE_COMMENT_RESET: {
+                    GetVehicleModelName(GetVehicleModel(vehicleid), g_CommentString, sizeof g_CommentString);
+                    strpack(g_VehicleData[vehicleid-1][VEHICLE_DATA_COMMENT], g_CommentString, MAX_COMMENT_LEN+1); // Set Vehicle Comment
                 }
                 case LISTITEM_VEHICLE_COLOR1: {
                     SelectTextDraw(playerid, SELECT_TD_COLOR);

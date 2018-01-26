@@ -3,7 +3,7 @@ DefaultFontListData(playerid) {
 
     g_FontListData[playerid][FONTLIST_DATA_MAXPAGE] = MIN_FONTLIST_PAGE;
 
-    g_FontListData[playerid][FONTLIST_DATA_COLORED_ROW] = INVALID_ROW;
+    g_FontListData[playerid][FONTLIST_DATA_APPLIED_ROW] = INVALID_ROW;
 
     strpack(g_FontListData[playerid][FONTLIST_DATA_SEARCH], "", MAX_SEARCH_LEN+1);
 
@@ -14,74 +14,74 @@ DefaultFontListData(playerid) {
 
 CreateGenericFontList() {
     g_FontListGTD[FONTLIST_GTD_BG] =
-    TextDrawCreate            (94.0, 151.0, "_");
-    TextDrawAlignment        (g_FontListGTD[FONTLIST_GTD_BG], 2);
-    TextDrawLetterSize        (g_FontListGTD[FONTLIST_GTD_BG], 0.0, 32.8);
-    TextDrawUseBox            (g_FontListGTD[FONTLIST_GTD_BG], 1);
+    TextDrawCreate          (94.0, 151.0, "_");
+    TextDrawAlignment       (g_FontListGTD[FONTLIST_GTD_BG], 2);
+    TextDrawLetterSize      (g_FontListGTD[FONTLIST_GTD_BG], 0.0, 32.8);
+    TextDrawUseBox          (g_FontListGTD[FONTLIST_GTD_BG], 1);
     TextDrawBoxColor        (g_FontListGTD[FONTLIST_GTD_BG], 100);
     TextDrawTextSize        (g_FontListGTD[FONTLIST_GTD_BG], 0.0, 190.0);
 
     g_FontListGTD[FONTLIST_GTD_CLOSE] =
-    TextDrawCreate            (179.0, 151.0, "X");
-    TextDrawAlignment        (g_FontListGTD[FONTLIST_GTD_CLOSE], 2);
-    TextDrawBackgroundColor    (g_FontListGTD[FONTLIST_GTD_CLOSE], 255);
+    TextDrawCreate          (179.0, 151.0, "X");
+    TextDrawAlignment       (g_FontListGTD[FONTLIST_GTD_CLOSE], 2);
+    TextDrawBackgroundColor (g_FontListGTD[FONTLIST_GTD_CLOSE], 255);
     TextDrawFont            (g_FontListGTD[FONTLIST_GTD_CLOSE], 1);
-    TextDrawLetterSize        (g_FontListGTD[FONTLIST_GTD_CLOSE], 0.3, 1.0);
-    TextDrawColor            (g_FontListGTD[FONTLIST_GTD_CLOSE], RGBA_WHITE);
-    TextDrawSetOutline        (g_FontListGTD[FONTLIST_GTD_CLOSE], 1);
-    TextDrawSetProportional    (g_FontListGTD[FONTLIST_GTD_CLOSE], 1);
-    TextDrawUseBox            (g_FontListGTD[FONTLIST_GTD_CLOSE], 1);
+    TextDrawLetterSize      (g_FontListGTD[FONTLIST_GTD_CLOSE], 0.3, 1.0);
+    TextDrawColor           (g_FontListGTD[FONTLIST_GTD_CLOSE], RGBA_WHITE);
+    TextDrawSetOutline      (g_FontListGTD[FONTLIST_GTD_CLOSE], 1);
+    TextDrawSetProportional (g_FontListGTD[FONTLIST_GTD_CLOSE], 1);
+    TextDrawUseBox          (g_FontListGTD[FONTLIST_GTD_CLOSE], 1);
     TextDrawBoxColor        (g_FontListGTD[FONTLIST_GTD_CLOSE], 0xFF000064);
     TextDrawTextSize        (g_FontListGTD[FONTLIST_GTD_CLOSE], 10.0, 20.0);
-    TextDrawSetSelectable    (g_FontListGTD[FONTLIST_GTD_CLOSE], 1);
+    TextDrawSetSelectable   (g_FontListGTD[FONTLIST_GTD_CLOSE], 1);
 
     g_FontListGTD[FONTLIST_GTD_PAGE_F] =
-    TextDrawCreate            (11.0, 164.0, "<<");
-    TextDrawAlignment        (g_FontListGTD[FONTLIST_GTD_PAGE_F], 2);
-    TextDrawBackgroundColor    (g_FontListGTD[FONTLIST_GTD_PAGE_F], 255);
+    TextDrawCreate          (11.0, 164.0, "<<");
+    TextDrawAlignment       (g_FontListGTD[FONTLIST_GTD_PAGE_F], 2);
+    TextDrawBackgroundColor (g_FontListGTD[FONTLIST_GTD_PAGE_F], 255);
     TextDrawFont            (g_FontListGTD[FONTLIST_GTD_PAGE_F], 1);
-    TextDrawLetterSize        (g_FontListGTD[FONTLIST_GTD_PAGE_F], 0.2, 1.0);
-    TextDrawColor            (g_FontListGTD[FONTLIST_GTD_PAGE_F], RGBA_WHITE);
-    TextDrawSetOutline        (g_FontListGTD[FONTLIST_GTD_PAGE_F], 1);
-    TextDrawSetProportional    (g_FontListGTD[FONTLIST_GTD_PAGE_F], 1);
+    TextDrawLetterSize      (g_FontListGTD[FONTLIST_GTD_PAGE_F], 0.2, 1.0);
+    TextDrawColor           (g_FontListGTD[FONTLIST_GTD_PAGE_F], RGBA_WHITE);
+    TextDrawSetOutline      (g_FontListGTD[FONTLIST_GTD_PAGE_F], 1);
+    TextDrawSetProportional (g_FontListGTD[FONTLIST_GTD_PAGE_F], 1);
     TextDrawTextSize        (g_FontListGTD[FONTLIST_GTD_PAGE_F], 10.0, 20.0);
-    TextDrawSetSelectable    (g_FontListGTD[FONTLIST_GTD_PAGE_F], 1);
+    TextDrawSetSelectable   (g_FontListGTD[FONTLIST_GTD_PAGE_F], 1);
 
     g_FontListGTD[FONTLIST_GTD_PAGE_P] =
-    TextDrawCreate            (34.0, 164.0, "<");
-    TextDrawAlignment        (g_FontListGTD[FONTLIST_GTD_PAGE_P], 2);
-    TextDrawBackgroundColor    (g_FontListGTD[FONTLIST_GTD_PAGE_P], 255);
+    TextDrawCreate          (34.0, 164.0, "<");
+    TextDrawAlignment       (g_FontListGTD[FONTLIST_GTD_PAGE_P], 2);
+    TextDrawBackgroundColor (g_FontListGTD[FONTLIST_GTD_PAGE_P], 255);
     TextDrawFont            (g_FontListGTD[FONTLIST_GTD_PAGE_P], 1);
-    TextDrawLetterSize        (g_FontListGTD[FONTLIST_GTD_PAGE_P], 0.2, 1.0);
-    TextDrawColor            (g_FontListGTD[FONTLIST_GTD_PAGE_P], RGBA_WHITE);
-    TextDrawSetOutline        (g_FontListGTD[FONTLIST_GTD_PAGE_P], 1);
-    TextDrawSetProportional    (g_FontListGTD[FONTLIST_GTD_PAGE_P], 1);
+    TextDrawLetterSize      (g_FontListGTD[FONTLIST_GTD_PAGE_P], 0.2, 1.0);
+    TextDrawColor           (g_FontListGTD[FONTLIST_GTD_PAGE_P], RGBA_WHITE);
+    TextDrawSetOutline      (g_FontListGTD[FONTLIST_GTD_PAGE_P], 1);
+    TextDrawSetProportional (g_FontListGTD[FONTLIST_GTD_PAGE_P], 1);
     TextDrawTextSize        (g_FontListGTD[FONTLIST_GTD_PAGE_P], 10.0, 20.0);
-    TextDrawSetSelectable    (g_FontListGTD[FONTLIST_GTD_PAGE_P], 1);
+    TextDrawSetSelectable   (g_FontListGTD[FONTLIST_GTD_PAGE_P], 1);
 
     g_FontListGTD[FONTLIST_GTD_PAGE_N] =
-    TextDrawCreate            (156.0, 164.0, ">");
-    TextDrawAlignment        (g_FontListGTD[FONTLIST_GTD_PAGE_N], 2);
-    TextDrawBackgroundColor    (g_FontListGTD[FONTLIST_GTD_PAGE_N], 255);
+    TextDrawCreate          (156.0, 164.0, ">");
+    TextDrawAlignment       (g_FontListGTD[FONTLIST_GTD_PAGE_N], 2);
+    TextDrawBackgroundColor (g_FontListGTD[FONTLIST_GTD_PAGE_N], 255);
     TextDrawFont            (g_FontListGTD[FONTLIST_GTD_PAGE_N], 1);
-    TextDrawLetterSize        (g_FontListGTD[FONTLIST_GTD_PAGE_N], 0.2, 1.0);
-    TextDrawColor            (g_FontListGTD[FONTLIST_GTD_PAGE_N], RGBA_WHITE);
-    TextDrawSetOutline        (g_FontListGTD[FONTLIST_GTD_PAGE_N], 1);
-    TextDrawSetProportional    (g_FontListGTD[FONTLIST_GTD_PAGE_N], 1);
+    TextDrawLetterSize      (g_FontListGTD[FONTLIST_GTD_PAGE_N], 0.2, 1.0);
+    TextDrawColor           (g_FontListGTD[FONTLIST_GTD_PAGE_N], RGBA_WHITE);
+    TextDrawSetOutline      (g_FontListGTD[FONTLIST_GTD_PAGE_N], 1);
+    TextDrawSetProportional (g_FontListGTD[FONTLIST_GTD_PAGE_N], 1);
     TextDrawTextSize        (g_FontListGTD[FONTLIST_GTD_PAGE_N], 10.0, 20.0);
-    TextDrawSetSelectable    (g_FontListGTD[FONTLIST_GTD_PAGE_N], 1);
+    TextDrawSetSelectable   (g_FontListGTD[FONTLIST_GTD_PAGE_N], 1);
 
     g_FontListGTD[FONTLIST_GTD_PAGE_L] =
-    TextDrawCreate            (179.0, 164.0, ">>");
-    TextDrawAlignment        (g_FontListGTD[FONTLIST_GTD_PAGE_L], 2);
-    TextDrawBackgroundColor    (g_FontListGTD[FONTLIST_GTD_PAGE_L], 255);
+    TextDrawCreate          (179.0, 164.0, ">>");
+    TextDrawAlignment       (g_FontListGTD[FONTLIST_GTD_PAGE_L], 2);
+    TextDrawBackgroundColor (g_FontListGTD[FONTLIST_GTD_PAGE_L], 255);
     TextDrawFont            (g_FontListGTD[FONTLIST_GTD_PAGE_L], 1);
-    TextDrawLetterSize        (g_FontListGTD[FONTLIST_GTD_PAGE_L], 0.2, 1.0);
-    TextDrawColor            (g_FontListGTD[FONTLIST_GTD_PAGE_L], RGBA_WHITE);
-    TextDrawSetOutline        (g_FontListGTD[FONTLIST_GTD_PAGE_L], 1);
-    TextDrawSetProportional    (g_FontListGTD[FONTLIST_GTD_PAGE_L], 1);
+    TextDrawLetterSize      (g_FontListGTD[FONTLIST_GTD_PAGE_L], 0.2, 1.0);
+    TextDrawColor           (g_FontListGTD[FONTLIST_GTD_PAGE_L], RGBA_WHITE);
+    TextDrawSetOutline      (g_FontListGTD[FONTLIST_GTD_PAGE_L], 1);
+    TextDrawSetProportional (g_FontListGTD[FONTLIST_GTD_PAGE_L], 1);
     TextDrawTextSize        (g_FontListGTD[FONTLIST_GTD_PAGE_L], 10.0, 20.0);
-    TextDrawSetSelectable    (g_FontListGTD[FONTLIST_GTD_PAGE_L], 1);
+    TextDrawSetSelectable   (g_FontListGTD[FONTLIST_GTD_PAGE_L], 1);
 }
 
 DestroyGenericFontList() {
@@ -93,51 +93,51 @@ DestroyGenericFontList() {
 
 CreatePlayerFontList(playerid) {
     g_FontListPTD[playerid][FONTLIST_PTD_CAPTION] =
-    CreatePlayerTextDraw            (playerid, 2.0, 139.0, "Caption");
-    PlayerTextDrawBackgroundColor    (playerid, g_FontListPTD[playerid][FONTLIST_PTD_CAPTION], 255);
-    PlayerTextDrawFont                (playerid, g_FontListPTD[playerid][FONTLIST_PTD_CAPTION], 0);
-    PlayerTextDrawLetterSize        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_CAPTION], 0.5, 2.0);
-    PlayerTextDrawColor                (playerid, g_FontListPTD[playerid][FONTLIST_PTD_CAPTION], RGBA_WHITE);
-    PlayerTextDrawSetOutline        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_CAPTION], 1);
-    PlayerTextDrawSetProportional    (playerid, g_FontListPTD[playerid][FONTLIST_PTD_CAPTION], 1);
+    CreatePlayerTextDraw          (playerid, 2.0, 139.0, "Caption");
+    PlayerTextDrawBackgroundColor (playerid, g_FontListPTD[playerid][FONTLIST_PTD_CAPTION], 255);
+    PlayerTextDrawFont            (playerid, g_FontListPTD[playerid][FONTLIST_PTD_CAPTION], 0);
+    PlayerTextDrawLetterSize      (playerid, g_FontListPTD[playerid][FONTLIST_PTD_CAPTION], 0.5, 2.0);
+    PlayerTextDrawColor           (playerid, g_FontListPTD[playerid][FONTLIST_PTD_CAPTION], RGBA_WHITE);
+    PlayerTextDrawSetOutline      (playerid, g_FontListPTD[playerid][FONTLIST_PTD_CAPTION], 1);
+    PlayerTextDrawSetProportional (playerid, g_FontListPTD[playerid][FONTLIST_PTD_CAPTION], 1);
 
     g_FontListPTD[playerid][FONTLIST_PTD_PAGE] =
-    CreatePlayerTextDraw            (playerid, 95.0, 164.0, "Page");
-    PlayerTextDrawAlignment            (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 2);
-    PlayerTextDrawBackgroundColor    (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 255);
-    PlayerTextDrawFont                (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 1);
-    PlayerTextDrawLetterSize        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 0.2, 1.0);
-    PlayerTextDrawColor                (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], RGBA_WHITE);
-    PlayerTextDrawSetOutline        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 1);
-    PlayerTextDrawSetProportional    (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 1);
-    PlayerTextDrawTextSize            (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 10.0, 96.0);
-    PlayerTextDrawSetSelectable        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 1);
+    CreatePlayerTextDraw          (playerid, 95.0, 164.0, "Page");
+    PlayerTextDrawAlignment       (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 2);
+    PlayerTextDrawBackgroundColor (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 255);
+    PlayerTextDrawFont            (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 1);
+    PlayerTextDrawLetterSize      (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 0.2, 1.0);
+    PlayerTextDrawColor           (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], RGBA_WHITE);
+    PlayerTextDrawSetOutline      (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 1);
+    PlayerTextDrawSetProportional (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 1);
+    PlayerTextDrawTextSize        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 10.0, 96.0);
+    PlayerTextDrawSetSelectable   (playerid, g_FontListPTD[playerid][FONTLIST_PTD_PAGE], 1);
 
     g_FontListPTD[playerid][FONTLIST_PTD_SEARCH] =
-    CreatePlayerTextDraw            (playerid, 95.0, 177.0, "Search");
-    PlayerTextDrawAlignment            (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 2);
-    PlayerTextDrawBackgroundColor    (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 255);
-    PlayerTextDrawFont                (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 1);
-    PlayerTextDrawLetterSize        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 0.2, 1.0);
-    PlayerTextDrawColor                (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], RGBA_WHITE);
-    PlayerTextDrawSetOutline        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 1);
-    PlayerTextDrawSetProportional    (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 1);
-    PlayerTextDrawTextSize            (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 10.0, 188.0);
-    PlayerTextDrawSetSelectable        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 1);
+    CreatePlayerTextDraw          (playerid, 95.0, 177.0, "Search");
+    PlayerTextDrawAlignment       (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 2);
+    PlayerTextDrawBackgroundColor (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 255);
+    PlayerTextDrawFont            (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 1);
+    PlayerTextDrawLetterSize      (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 0.2, 1.0);
+    PlayerTextDrawColor           (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], RGBA_WHITE);
+    PlayerTextDrawSetOutline      (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 1);
+    PlayerTextDrawSetProportional (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 1);
+    PlayerTextDrawTextSize        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 10.0, 188.0);
+    PlayerTextDrawSetSelectable   (playerid, g_FontListPTD[playerid][FONTLIST_PTD_SEARCH], 1);
 
     for(new row, Float:y = 190.0; row < MAX_FONTLIST_ROWS; row ++, y += 13.0) {
         g_FontListPTD[playerid][FONTLIST_PTD_ROW][row] =
-        CreatePlayerTextDraw            (playerid, 1.0, y, "Row");
-        PlayerTextDrawBackgroundColor    (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 255);
-        PlayerTextDrawFont                (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 1);
-        PlayerTextDrawLetterSize        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 0.2, 1.0);
-        PlayerTextDrawColor                (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], RGBA_WHITE);
-        PlayerTextDrawSetOutline        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 1);
-        PlayerTextDrawSetProportional    (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 1);
-        PlayerTextDrawUseBox            (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 1);
-        PlayerTextDrawBoxColor            (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 0);
-        PlayerTextDrawTextSize            (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 189.0, 10.0);
-        PlayerTextDrawSetSelectable        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 1);
+        CreatePlayerTextDraw          (playerid, 1.0, y, "Row");
+        PlayerTextDrawBackgroundColor (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 255);
+        PlayerTextDrawFont            (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 1);
+        PlayerTextDrawLetterSize      (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 0.2, 1.0);
+        PlayerTextDrawColor           (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], RGBA_WHITE);
+        PlayerTextDrawSetOutline      (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 1);
+        PlayerTextDrawSetProportional (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 1);
+        PlayerTextDrawUseBox          (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 1);
+        PlayerTextDrawBoxColor        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 0);
+        PlayerTextDrawTextSize        (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 189.0, 10.0);
+        PlayerTextDrawSetSelectable   (playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], 1);
     }
 }
 
@@ -196,7 +196,7 @@ LoadFontListRowData(playerid) {
 
     g_FontListData[playerid][FONTLIST_DATA_MAXPAGE] = max_offset / MAX_FONTLIST_ROWS;
 
-    g_FontListData[playerid][FONTLIST_DATA_COLORED_ROW] = GetFontListNewColoredRow(playerid);
+    g_FontListData[playerid][FONTLIST_DATA_APPLIED_ROW] = GetFontListNewColoredRow(playerid);
 }
 
 GetFontListNewColoredRow(playerid) {
@@ -245,10 +245,10 @@ ApplyFontListSearch(playerid) {
     }
 }
 
-ApplyFontListRowColor(playerid, row) {
+ApplyFontListRowApplied(playerid, row) {
     new
-        colored_row = g_FontListData[playerid][FONTLIST_DATA_COLORED_ROW],
-        boxcolor_rgba = ( row == colored_row ) ? 0xFFFFFF64 : 0x00000000
+        applied_row = g_FontListData[playerid][FONTLIST_DATA_APPLIED_ROW],
+        boxcolor_rgba = ( row == applied_row ) ? 0xFFFFFF64 : 0x00000000
     ;
 
     PlayerTextDrawBoxColor(playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], boxcolor_rgba);
@@ -269,7 +269,7 @@ ApplyFontListRowData(playerid) {
 
         PlayerTextDrawSetString(playerid, g_FontListPTD[playerid][FONTLIST_PTD_ROW][row], g_FontString);
 
-        ApplyFontListRowColor(playerid, row);
+        ApplyFontListRowApplied(playerid, row);
     }
 }
 

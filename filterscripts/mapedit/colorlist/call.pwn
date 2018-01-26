@@ -190,8 +190,14 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid) {
 
 
 public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid) {
+    if( playertextid == g_ColorListPTD[playerid][COLORLIST_PTD_PAGE] ) {
+        return ShowColorListDialog(playerid, DIALOGID_COLORLIST_PAGE), 1;
+    }
+    if( playertextid == g_ColorListPTD[playerid][COLORLIST_PTD_SEARCH] ) {
+        return ShowColorListDialog(playerid, DIALOGID_COLORLIST_SEARCH), 1;
+    }
     for(new row; row < MAX_COLORLIST_ROWS; row ++) {
-        if( playertextid == g_ColorListPTD[playerid][COLORLIST_PTD_ROW][row] ) {
+        if( playertextid == g_ColorListPTD[playerid][COLORLIST_PTD_ROW_1][row] || playertextid == g_ColorListPTD[playerid][COLORLIST_PTD_ROW_2][row] ) {
             new row_colorid = GetColorListRowColorID(playerid, row);
 
             if( row_colorid == INVALID_COLOR_ID ) {
@@ -353,4 +359,67 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid) {
 #define OnPlayerClickPlayerTextDraw color_OnPlayerClickPlayerTD
 #if defined color_OnPlayerClickPlayerTD
     forward color_OnPlayerClickPlayerTD(playerid, PlayerText:playertextid);
+#endif
+
+
+public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) {
+    switch(dialogid) {
+        case DIALOGID_COLORLIST_PAGE: {
+            if( !response ) {
+                return 1;
+            }
+
+            new page;
+
+            if( sscanf(inputtext, "i", page) ) {
+                SendClientMessage(playerid, RGBA_RED, "ERROR: You did not enter a valid page number!");
+                ShowColorListDialog(playerid, dialogid);
+                return 1;
+            }
+
+            page --;
+
+            if( page < MIN_COLORLIST_PAGE || page > GetColorListMaxPage(playerid) ) {
+                SendClientMessage(playerid, RGBA_RED, "ERROR: You did not enter a valid page number!");
+                ShowColorListDialog(playerid, dialogid);
+                return 1;
+            }
+
+            SetColorListPage(playerid, page);
+            LoadColorListRowData(playerid);
+
+            ApplyColorListPage(playerid);
+            ApplyColorListRowData(playerid);
+            return 1;
+        }
+        case DIALOGID_COLORLIST_SEARCH: {
+            if( !response ) {
+                return 1;
+            }
+
+            SetColorListPage(playerid, MIN_COLORLIST_PAGE);
+            SetColorListSearch(playerid, inputtext);
+            LoadColorListRowData(playerid);
+
+            ApplyColorListPage(playerid);
+            ApplyColorListSearch(playerid);
+            ApplyColorListRowData(playerid);
+            return 1;
+        }
+    }
+
+    #if defined color_OnDialogResponse
+        return color_OnDialogResponse(playerid, dialogid, response, listitem, inputtext);
+    #else
+        return 0;
+    #endif
+}
+#if defined _ALS_OnDialogResponse
+    #undef OnDialogResponse
+#else
+    #define _ALS_OnDialogResponse
+#endif
+#define OnDialogResponse color_OnDialogResponse
+#if defined color_OnDialogResponse
+    forward color_OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]);
 #endif

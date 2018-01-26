@@ -33,6 +33,11 @@ ShowActorDialog(playerid, dialogid) {
                         format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Comment\t%s\n", g_CommentString);
                         strcat(g_DialogInfo, g_DialogInfoRow);
                     }
+                    case LISTITEM_ACTOR_COMMENT_RESET: {
+                        GetSkinName(g_ActorData[actorid][ACTOR_DATA_SKIN], g_SkinString, sizeof g_SkinString);
+                        format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Reset Comment To\t%s\n", g_SkinString);
+                        strcat(g_DialogInfo, g_DialogInfoRow);
+                    }
                     case LISTITEM_ACTOR_ANIM_INDEX: {
                         new anim_index = g_ActorData[actorid][ACTOR_DATA_ANIM_INDEX];
                         if( anim_index == INVALID_ANIM_INDEX ) {

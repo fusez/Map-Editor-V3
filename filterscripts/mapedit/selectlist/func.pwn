@@ -149,15 +149,25 @@ CreatePlayerSelectList(playerid) {
     g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL] =
     CreatePlayerTextDraw          (playerid, 1.0, 177.0, "ID");
     PlayerTextDrawBackgroundColor (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], 255);
-    PlayerTextDrawFont              (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], 1);
+    PlayerTextDrawFont            (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], 1);
     PlayerTextDrawLetterSize      (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], 0.2, 1.0);
     PlayerTextDrawColor           (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], RGBA_WHITE);
     PlayerTextDrawSetOutline      (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], 1);
     PlayerTextDrawSetProportional (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], 1);
     PlayerTextDrawTextSize        (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], 40.0, 10.0);
 
+    g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL] =
+    CreatePlayerTextDraw          (playerid, 43.0, 177.0, "Model ID");
+    PlayerTextDrawBackgroundColor (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL], 255);
+    PlayerTextDrawFont            (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL], 1);
+    PlayerTextDrawLetterSize      (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL], 0.2, 1.0);
+    PlayerTextDrawColor           (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL], RGBA_WHITE);
+    PlayerTextDrawSetOutline      (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL], 1);
+    PlayerTextDrawSetProportional (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL], 1);
+    PlayerTextDrawTextSize        (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL], 82.0, 10.0);
+
     g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_COL] =
-    CreatePlayerTextDraw          (playerid, 43.0, 177.0, "Comment");
+    CreatePlayerTextDraw          (playerid, 85.0, 177.0, "Comment");
     PlayerTextDrawBackgroundColor (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_COL], 255);
     PlayerTextDrawFont            (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_COL], 1);
     PlayerTextDrawLetterSize      (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_COL], 0.2, 1.0);
@@ -180,8 +190,21 @@ CreatePlayerSelectList(playerid) {
         PlayerTextDrawTextSize        (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_ROW][row], 40.0, 10.0);
         PlayerTextDrawSetSelectable   (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_ROW][row], 1);
 
+        g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row] =
+        CreatePlayerTextDraw          (playerid, 43.0, y, "Model ID");
+        PlayerTextDrawBackgroundColor (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row], 255);
+        PlayerTextDrawFont            (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row], 1);
+        PlayerTextDrawLetterSize      (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row], 0.2, 1.0);
+        PlayerTextDrawColor           (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row], RGBA_WHITE);
+        PlayerTextDrawSetOutline      (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row], 1);
+        PlayerTextDrawSetProportional (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row], 1);
+        PlayerTextDrawUseBox          (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row], 1);
+        PlayerTextDrawBoxColor        (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row], 100);
+        PlayerTextDrawTextSize        (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row], 82.0, 10.0);
+        PlayerTextDrawSetSelectable   (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row], 1);
+
         g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_ROW][row] =
-        CreatePlayerTextDraw          (playerid, 43.0, y, "Comment");
+        CreatePlayerTextDraw          (playerid, 85.0, y, "Comment");
         PlayerTextDrawBackgroundColor (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_ROW][row], 255);
         PlayerTextDrawFont            (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_ROW][row], 1);
         PlayerTextDrawLetterSize      (playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_ROW][row], 0.2, 1.0);
@@ -214,6 +237,7 @@ ShowSelectList(playerid) {
 
     ApplySelectListColumns(playerid);
     PlayerTextDrawShow(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL]);
+    PlayerTextDrawShow(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL]);
     PlayerTextDrawShow(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_COL]);
 
     ApplySelectListCaption(playerid);
@@ -499,22 +523,27 @@ ApplySelectListColumns(playerid) {
     switch( g_PlayerData[playerid][PLAYER_DATA_TDMODE] ) {
         case TDMODE_SELECTLIST_OBJECT: {
             PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], "Object ID");
+            PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL], "Model ID");
             PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_COL], "Object Comment");
         }
         case TDMODE_SELECTLIST_VEHICLE: {
             PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], "Vehicle ID");
+            PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL], "Model ID");
             PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_COL], "Vehicle Comment");
         }
         case TDMODE_SELECTLIST_ACTOR: {
             PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], "Actor ID");
+            PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL], "Skin ID");
             PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_COL], "Actor Comment");
         }
         case TDMODE_SELECTLIST_PICKUP: {
             PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], "Pickup ID");
+            PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL], "Model ID");
             PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_COL], "Pickup Comment");
         }
         default: {
             PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_COL], "ID");
+            PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_COL], "Model ID");
             PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_COL], "Comment");
             return 0;
         }
@@ -553,9 +582,11 @@ ApplySelectListRowColor(playerid, row) {
     }
 
     PlayerTextDrawBoxColor(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_ROW][row],      rgba_boxcolor);
+    PlayerTextDrawBoxColor(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row], rgba_boxcolor);
     PlayerTextDrawBoxColor(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_ROW][row], rgba_boxcolor);
 
     PlayerTextDrawShow(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_ROW][row]);
+    PlayerTextDrawShow(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row]);
     PlayerTextDrawShow(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_ROW][row]);
 
     return 1;
@@ -594,30 +625,41 @@ ApplySelectListRowData(playerid, row) {
 
     if( !isvalid ) {
         PlayerTextDrawHide(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_ROW][row]);
+        PlayerTextDrawHide(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row]);
         PlayerTextDrawHide(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_ROW][row]);
         return 0;
     }
 
+    new
+        id_str[4+1],
+        modelid_str[6+1]
+    ;
+
     switch( g_PlayerData[playerid][PLAYER_DATA_TDMODE] ) {
         case TDMODE_SELECTLIST_OBJECT: {
-            format(g_IntegerString, sizeof g_IntegerString, "%i", objectid);
+            format(id_str, sizeof id_str, "%i", objectid);
+            format(modelid_str, sizeof modelid_str, "%i", GetObjectModel(objectid));
             strunpack(g_CommentString, g_ObjectData[objectid-1][OBJECT_DATA_COMMENT], sizeof g_CommentString);
         }
         case TDMODE_SELECTLIST_VEHICLE: {
-            format(g_IntegerString, sizeof g_IntegerString, "%i", vehicleid);
+            format(id_str, sizeof id_str, "%i", vehicleid);
+            format(modelid_str, sizeof modelid_str, "%i", GetVehicleModel(vehicleid));
             strunpack(g_CommentString, g_VehicleData[vehicleid-1][VEHICLE_DATA_COMMENT], sizeof g_CommentString);
         }
         case TDMODE_SELECTLIST_ACTOR: {
-            format(g_IntegerString, sizeof g_IntegerString, "%i", actorid);
+            format(id_str, sizeof id_str, "%i", actorid);
+            format(modelid_str, sizeof modelid_str, "%i", g_ActorData[actorid][ACTOR_DATA_SKIN]);
             strunpack(g_CommentString, g_ActorData[actorid][ACTOR_DATA_COMMENT], sizeof g_CommentString);
         }
         case TDMODE_SELECTLIST_PICKUP: {
-            format(g_IntegerString, sizeof g_IntegerString, "%i", pickupid);
+            format(id_str, sizeof id_str, "%i", pickupid);
+            format(modelid_str, sizeof modelid_str, "%i", g_PickupData[pickupid][PICKUP_DATA_MODEL]);
             strunpack(g_CommentString, g_PickupData[pickupid][PICKUP_DATA_COMMENT], sizeof g_CommentString);
         }
     }
 
-    PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_ROW][row], g_IntegerString);
+    PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_ID_ROW][row], id_str);
+    PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row], modelid_str);
     PlayerTextDrawSetString(playerid, g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_ROW][row], g_CommentString);
 
     ApplySelectListRowColor(playerid, row);

@@ -203,6 +203,10 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) {
                 case LISTITEM_OBJECT_COMMENT: {
                     return ShowObjectDialog(playerid, DIALOGID_OBJECT_COMMENT), 1;
                 }
+                case LISTITEM_OBJECT_COMMENT_RESET: {
+                    GetModelName(GetObjectModel(objectid), g_CommentString, sizeof g_CommentString);
+                    strpack(g_ObjectData[objectid-1][OBJECT_DATA_COMMENT], g_CommentString, MAX_COMMENT_LEN+1); // Set Object Comment
+                }
                 case LISTITEM_OBJECT_INDEX_START..LISTITEM_OBJECT_INDEX_END: {
                     g_PlayerData[playerid][PLAYER_DATA_EDIT_OBJMATIDX] = (listitem - LISTITEM_OBJECT_INDEX_START);
                     return ShowObjectDialog(playerid, DIALOGID_OBJECT_INDEX), 1;

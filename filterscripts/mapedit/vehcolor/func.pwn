@@ -5,6 +5,9 @@ LoadVehicleColorCache() {
         colorid = db_get_field_assoc_int(g_DBResult, "colorid");
         if( IsValidVehicleColor(colorid) ) {
             g_VehColorCache[colorid][VEHCOLOR_CACHE_RGB] = db_get_field_assoc_int(g_DBResult, "rgb");
+
+            db_get_field_assoc(g_DBResult, "name", g_VehColorString, sizeof g_VehColorString);
+            strpack(g_VehColorCache[colorid][VEHCOLOR_CACHE_NAME], g_VehColorString, MAX_VEHCOLOR_NAMELEN+1);
         }
         db_next_row(g_DBResult);
     }
@@ -13,11 +16,17 @@ LoadVehicleColorCache() {
 }
 
 GetVehicleColorRGB(colorid) {
-    if( !IsValidVehicleColor(colorid) ) {
-        return 0x000000;
+    if( IsValidVehicleColor(colorid) ) {
+        return g_VehColorCache[colorid][VEHCOLOR_CACHE_RGB];
     }
+    return 0x000000;
+}
 
-    return g_VehColorCache[colorid][VEHCOLOR_CACHE_RGB];
+GetVehicleColorName(colorid, name[], name_size) {
+    if( IsValidVehicleColor(colorid) ) {
+        return strunpack(name, g_VehColorCache[colorid][VEHCOLOR_CACHE_NAME], name_size), 1;
+    }
+    return format(name, name_size, "Unknown Color"), 0;
 }
 
 FindVehicleColors(result[], result_size, search[], offset, &max_offset) {

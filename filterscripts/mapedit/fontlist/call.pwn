@@ -127,7 +127,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid) {
     if( clickedid == Text: INVALID_TEXT_DRAW && g_PlayerData[playerid][PLAYER_DATA_TDMODE] == TDMODE_FONTLIST ) {
         HidePlayerTextdrawMode(playerid);
     }
-    if( clickedid == g_FontListGTD[COLORLIST_GTD_CLOSE] ) {
+    if( clickedid == g_FontListGTD[FONTLIST_GTD_CLOSE] ) {
         ShowObjectDialog(playerid, DIALOGID_OBJECT_INDEX);
         HidePlayerTextdrawMode(playerid);
         return 1;
@@ -209,8 +209,8 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid) {
     if( playertextid == g_FontListPTD[playerid][FONTLIST_PTD_SEARCH] ) {
         return ShowFontListDialog(playerid, DIALOGID_FONTLIST_SEARCH), 1;
     }
-    for(new row; row < MAX_COLORLIST_ROWS; row ++) {
-        if( playertextid == g_FontListPTD[playerid][COLORLIST_PTD_ROW][row] ) {
+    for(new row; row < MAX_FONTLIST_ROWS; row ++) {
+        if( playertextid == g_FontListPTD[playerid][FONTLIST_PTD_ROW][row] ) {
             new row_font_id = g_FontListData[playerid][FONTLIST_DATA_ROW_FONTID][row];
 
             if( row_font_id == INVALID_FONT_ID ) {
@@ -243,15 +243,15 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid) {
                 ApplyObjectMaterialIndexData(objectid, materialindex);
             }
 
-            new prev_row = g_FontListData[playerid][FONTLIST_DATA_COLORED_ROW];
+            new prev_row = g_FontListData[playerid][FONTLIST_DATA_APPLIED_ROW];
             if( row != prev_row ) {
-                g_FontListData[playerid][FONTLIST_DATA_COLORED_ROW] = row;
+                g_FontListData[playerid][FONTLIST_DATA_APPLIED_ROW] = row;
 
                 if( prev_row != INVALID_ROW ) {
-                    ApplyFontListRowColor(playerid, prev_row);
+                    ApplyFontListRowApplied(playerid, prev_row);
                 }
 
-                ApplyFontListRowColor(playerid, row);
+                ApplyFontListRowApplied(playerid, row);
             }
             return 1;
         }

@@ -152,6 +152,10 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) {
                 case LISTITEM_ACTOR_COMMENT: {
                     return ShowActorDialog(playerid, DIALOGID_ACTOR_COMMENT), 1;
                 }
+                case LISTITEM_ACTOR_COMMENT_RESET: {
+                    GetSkinName(g_ActorData[actorid][ACTOR_DATA_SKIN], g_CommentString, sizeof g_CommentString);
+                    strpack(g_ActorData[actorid][ACTOR_DATA_COMMENT], g_CommentString, MAX_COMMENT_LEN+1); // Set Actor Comment
+                }
                 case LISTITEM_ACTOR_ANIM_INDEX: {
                     SelectTextDraw(playerid, SELECT_TD_COLOR);
                     return ShowPlayerTextdrawMode(playerid, TDMODE_ANIMLIST), 1;

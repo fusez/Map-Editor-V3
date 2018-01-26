@@ -6,3 +6,6 @@
 
 #define MAX_VEHCOLOR_ID \
     255
+
+#define MAX_VEHCOLOR_NAMELEN \
+	17

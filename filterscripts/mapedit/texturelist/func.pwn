@@ -16,113 +16,113 @@ DefaultTextureListData(playerid) {
 
 CreateGenericTextureList() {
     g_TextureListGTD[TEXTURELIST_GTD_BG] =
-    TextDrawCreate            (116.0, 112.0, "_");
-    TextDrawAlignment        (g_TextureListGTD[TEXTURELIST_GTD_BG], 2);
-    TextDrawLetterSize        (g_TextureListGTD[TEXTURELIST_GTD_BG], 0.0, 37.2);
-    TextDrawUseBox            (g_TextureListGTD[TEXTURELIST_GTD_BG], 1);
+    TextDrawCreate          (116.0, 112.0, "_");
+    TextDrawAlignment       (g_TextureListGTD[TEXTURELIST_GTD_BG], 2);
+    TextDrawLetterSize      (g_TextureListGTD[TEXTURELIST_GTD_BG], 0.0, 37.2);
+    TextDrawUseBox          (g_TextureListGTD[TEXTURELIST_GTD_BG], 1);
     TextDrawBoxColor        (g_TextureListGTD[TEXTURELIST_GTD_BG], 100);
     TextDrawTextSize        (g_TextureListGTD[TEXTURELIST_GTD_BG], 0.0, 230.0);
 
     g_TextureListGTD[TEXTURELIST_GTD_CLOSE] =
-    TextDrawCreate            (221.0, 112.0, "X");
-    TextDrawAlignment        (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 2);
-    TextDrawBackgroundColor    (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 255);
+    TextDrawCreate          (221.0, 112.0, "X");
+    TextDrawAlignment       (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 2);
+    TextDrawBackgroundColor (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 255);
     TextDrawFont            (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 1);
-    TextDrawLetterSize        (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 0.3, 1.0);
-    TextDrawColor            (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], RGBA_WHITE);
-    TextDrawSetProportional    (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 1);
-    TextDrawSetOutline        (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 1);
-    TextDrawUseBox            (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 1);
+    TextDrawLetterSize      (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 0.3, 1.0);
+    TextDrawColor           (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], RGBA_WHITE);
+    TextDrawSetProportional (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 1);
+    TextDrawSetOutline      (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 1);
+    TextDrawUseBox          (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 1);
     TextDrawBoxColor        (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 0xFF000064);
     TextDrawTextSize        (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 10.0, 20.0);
-    TextDrawSetSelectable    (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 1);
+    TextDrawSetSelectable   (g_TextureListGTD[TEXTURELIST_GTD_CLOSE], 1);
 
     g_TextureListGTD[TEXTURELIST_GTD_PAGE_F] =
-    TextDrawCreate            (11.0, 125.0, "<<");
-    TextDrawAlignment        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 2);
-    TextDrawBackgroundColor    (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 255);
+    TextDrawCreate          (11.0, 125.0, "<<");
+    TextDrawAlignment       (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 2);
+    TextDrawBackgroundColor (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 255);
     TextDrawFont            (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 1);
-    TextDrawLetterSize        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 0.2, 1.0);
-    TextDrawColor            (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], RGBA_WHITE);
-    TextDrawSetProportional    (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 1);
-    TextDrawSetOutline        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 1);
+    TextDrawLetterSize      (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 0.2, 1.0);
+    TextDrawColor           (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], RGBA_WHITE);
+    TextDrawSetProportional (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 1);
+    TextDrawSetOutline      (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 1);
     TextDrawTextSize        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 10.0, 20.0);
-    TextDrawSetSelectable    (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 1);
+    TextDrawSetSelectable   (g_TextureListGTD[TEXTURELIST_GTD_PAGE_F], 1);
 
     g_TextureListGTD[TEXTURELIST_GTD_PAGE_P] =
-    TextDrawCreate            (34.0, 125.0, "<");
-    TextDrawAlignment        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 2);
-    TextDrawBackgroundColor    (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 255);
+    TextDrawCreate          (34.0, 125.0, "<");
+    TextDrawAlignment       (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 2);
+    TextDrawBackgroundColor (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 255);
     TextDrawFont            (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 1);
-    TextDrawLetterSize        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 0.2, 1.0);
-    TextDrawColor            (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], RGBA_WHITE);
-    TextDrawSetProportional    (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 1);
-    TextDrawSetOutline        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 1);
+    TextDrawLetterSize      (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 0.2, 1.0);
+    TextDrawColor           (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], RGBA_WHITE);
+    TextDrawSetProportional (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 1);
+    TextDrawSetOutline      (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 1);
     TextDrawTextSize        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 10.0, 20.0);
-    TextDrawSetSelectable    (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 1);
+    TextDrawSetSelectable   (g_TextureListGTD[TEXTURELIST_GTD_PAGE_P], 1);
 
     g_TextureListGTD[TEXTURELIST_GTD_PAGE_N] =
-    TextDrawCreate            (198.0, 125.0, ">");
-    TextDrawAlignment        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 2);
-    TextDrawBackgroundColor    (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 255);
+    TextDrawCreate          (198.0, 125.0, ">");
+    TextDrawAlignment       (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 2);
+    TextDrawBackgroundColor (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 255);
     TextDrawFont            (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 1);
-    TextDrawLetterSize        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 0.2, 1.0);
-    TextDrawColor            (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], RGBA_WHITE);
-    TextDrawSetProportional    (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 1);
-    TextDrawSetOutline        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 1);
+    TextDrawLetterSize      (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 0.2, 1.0);
+    TextDrawColor           (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], RGBA_WHITE);
+    TextDrawSetProportional (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 1);
+    TextDrawSetOutline      (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 1);
     TextDrawTextSize        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 10.0, 20.0);
-    TextDrawSetSelectable    (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 1);
+    TextDrawSetSelectable   (g_TextureListGTD[TEXTURELIST_GTD_PAGE_N], 1);
 
     g_TextureListGTD[TEXTURELIST_GTD_PAGE_L] =
-    TextDrawCreate            (221.0, 125.0, ">>");
-    TextDrawAlignment        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 2);
-    TextDrawBackgroundColor    (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 255);
+    TextDrawCreate          (221.0, 125.0, ">>");
+    TextDrawAlignment       (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 2);
+    TextDrawBackgroundColor (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 255);
     TextDrawFont            (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 1);
-    TextDrawLetterSize        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 0.2, 1.0);
-    TextDrawColor            (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], RGBA_WHITE);
-    TextDrawSetProportional    (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 1);
-    TextDrawSetOutline        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 1);
+    TextDrawLetterSize      (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 0.2, 1.0);
+    TextDrawColor           (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], RGBA_WHITE);
+    TextDrawSetProportional (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 1);
+    TextDrawSetOutline      (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 1);
     TextDrawTextSize        (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 10.0, 20.0);
-    TextDrawSetSelectable    (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 1);
+    TextDrawSetSelectable   (g_TextureListGTD[TEXTURELIST_GTD_PAGE_L], 1);
 
     g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R] =
-    TextDrawCreate            (116.0, 138.0, "Reset Category");
-    TextDrawAlignment        (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 2);
-    TextDrawBackgroundColor    (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 255);
+    TextDrawCreate          (116.0, 138.0, "Reset Category");
+    TextDrawAlignment       (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 2);
+    TextDrawBackgroundColor (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 255);
     TextDrawFont            (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 1);
-    TextDrawLetterSize        (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 0.2, 1.0);
-    TextDrawColor            (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], RGBA_WHITE);
-    TextDrawSetProportional    (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 1);
-    TextDrawSetOutline        (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 1);
+    TextDrawLetterSize      (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 0.2, 1.0);
+    TextDrawColor           (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], RGBA_WHITE);
+    TextDrawSetProportional (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 1);
+    TextDrawSetOutline      (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 1);
     TextDrawTextSize        (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 10.0, 230.0);
-    TextDrawSetSelectable    (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 1);
+    TextDrawSetSelectable   (g_TextureListGTD[TEXTURELIST_GTD_CATEGORY_R], 1);
 
     g_TextureListGTD[TEXTURELIST_GTD_COL_MID] =
-    TextDrawCreate            (1.0, 177.0, "Model ID");
-    TextDrawBackgroundColor    (g_TextureListGTD[TEXTURELIST_GTD_COL_MID], 255);
+    TextDrawCreate          (1.0, 177.0, "Model ID");
+    TextDrawBackgroundColor (g_TextureListGTD[TEXTURELIST_GTD_COL_MID], 255);
     TextDrawFont            (g_TextureListGTD[TEXTURELIST_GTD_COL_MID], 1);
-    TextDrawLetterSize        (g_TextureListGTD[TEXTURELIST_GTD_COL_MID], 0.2, 1.0);
-    TextDrawColor            (g_TextureListGTD[TEXTURELIST_GTD_COL_MID], RGBA_WHITE);
-    TextDrawSetOutline        (g_TextureListGTD[TEXTURELIST_GTD_COL_MID], 1);
-    TextDrawSetProportional    (g_TextureListGTD[TEXTURELIST_GTD_COL_MID], 1);
+    TextDrawLetterSize      (g_TextureListGTD[TEXTURELIST_GTD_COL_MID], 0.2, 1.0);
+    TextDrawColor           (g_TextureListGTD[TEXTURELIST_GTD_COL_MID], RGBA_WHITE);
+    TextDrawSetOutline      (g_TextureListGTD[TEXTURELIST_GTD_COL_MID], 1);
+    TextDrawSetProportional (g_TextureListGTD[TEXTURELIST_GTD_COL_MID], 1);
 
     g_TextureListGTD[TEXTURELIST_GTD_COL_TXD] =
-    TextDrawCreate            (43.0, 177.0, "TXD");
-    TextDrawBackgroundColor    (g_TextureListGTD[TEXTURELIST_GTD_COL_TXD], 255);
+    TextDrawCreate          (43.0, 177.0, "TXD");
+    TextDrawBackgroundColor (g_TextureListGTD[TEXTURELIST_GTD_COL_TXD], 255);
     TextDrawFont            (g_TextureListGTD[TEXTURELIST_GTD_COL_TXD], 1);
-    TextDrawLetterSize        (g_TextureListGTD[TEXTURELIST_GTD_COL_TXD], 0.2, 1.0);
-    TextDrawColor            (g_TextureListGTD[TEXTURELIST_GTD_COL_TXD], RGBA_WHITE);
-    TextDrawSetOutline        (g_TextureListGTD[TEXTURELIST_GTD_COL_TXD], 1);
-    TextDrawSetProportional    (g_TextureListGTD[TEXTURELIST_GTD_COL_TXD], 1);
+    TextDrawLetterSize      (g_TextureListGTD[TEXTURELIST_GTD_COL_TXD], 0.2, 1.0);
+    TextDrawColor           (g_TextureListGTD[TEXTURELIST_GTD_COL_TXD], RGBA_WHITE);
+    TextDrawSetOutline      (g_TextureListGTD[TEXTURELIST_GTD_COL_TXD], 1);
+    TextDrawSetProportional (g_TextureListGTD[TEXTURELIST_GTD_COL_TXD], 1);
 
     g_TextureListGTD[TEXTURELIST_GTD_COL_NAME] =
-    TextDrawCreate            (113.0, 177.0, "Name");
-    TextDrawBackgroundColor    (g_TextureListGTD[TEXTURELIST_GTD_COL_NAME], 255);
+    TextDrawCreate          (113.0, 177.0, "Name");
+    TextDrawBackgroundColor (g_TextureListGTD[TEXTURELIST_GTD_COL_NAME], 255);
     TextDrawFont            (g_TextureListGTD[TEXTURELIST_GTD_COL_NAME], 1);
-    TextDrawLetterSize        (g_TextureListGTD[TEXTURELIST_GTD_COL_NAME], 0.2, 1.0);
-    TextDrawColor            (g_TextureListGTD[TEXTURELIST_GTD_COL_NAME], RGBA_WHITE);
-    TextDrawSetOutline        (g_TextureListGTD[TEXTURELIST_GTD_COL_NAME], 1);
-    TextDrawSetProportional    (g_TextureListGTD[TEXTURELIST_GTD_COL_NAME], 1);
+    TextDrawLetterSize      (g_TextureListGTD[TEXTURELIST_GTD_COL_NAME], 0.2, 1.0);
+    TextDrawColor           (g_TextureListGTD[TEXTURELIST_GTD_COL_NAME], RGBA_WHITE);
+    TextDrawSetOutline      (g_TextureListGTD[TEXTURELIST_GTD_COL_NAME], 1);
+    TextDrawSetProportional (g_TextureListGTD[TEXTURELIST_GTD_COL_NAME], 1);
 }
 
 DestroyGenericTextureList() {
@@ -135,89 +135,89 @@ DestroyGenericTextureList() {
 
 CreatePlayerTextureList(playerid) {
     g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION] =
-    CreatePlayerTextDraw            (playerid, 2.0, 99.0, "Caption");
-    PlayerTextDrawBackgroundColor    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION], 255);
-    PlayerTextDrawFont                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION], 0);
-    PlayerTextDrawLetterSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION], 0.5, 2.0);
-    PlayerTextDrawColor                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION], RGBA_WHITE);
-    PlayerTextDrawSetOutline        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION], 1);
-    PlayerTextDrawSetProportional    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION], 1);
+    CreatePlayerTextDraw          (playerid, 2.0, 99.0, "Caption");
+    PlayerTextDrawBackgroundColor (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION], 255);
+    PlayerTextDrawFont            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION], 0);
+    PlayerTextDrawLetterSize      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION], 0.5, 2.0);
+    PlayerTextDrawColor           (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION], RGBA_WHITE);
+    PlayerTextDrawSetOutline      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION], 1);
+    PlayerTextDrawSetProportional (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CAPTION], 1);
 
     g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE] =
-    CreatePlayerTextDraw            (playerid, 116.0, 125.0, "Page");
-    PlayerTextDrawAlignment            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 2);
-    PlayerTextDrawBackgroundColor    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 255);
-    PlayerTextDrawFont                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 1);
-    PlayerTextDrawLetterSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 0.2, 1.0);
-    PlayerTextDrawColor                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], RGBA_WHITE);
-    PlayerTextDrawSetOutline        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 1);
-    PlayerTextDrawSetProportional    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 1);
-    PlayerTextDrawTextSize            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 10.0, 138.0);
-    PlayerTextDrawSetSelectable        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 1);
+    CreatePlayerTextDraw          (playerid, 116.0, 125.0, "Page");
+    PlayerTextDrawAlignment       (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 2);
+    PlayerTextDrawBackgroundColor (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 255);
+    PlayerTextDrawFont            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 1);
+    PlayerTextDrawLetterSize      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 0.2, 1.0);
+    PlayerTextDrawColor           (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], RGBA_WHITE);
+    PlayerTextDrawSetOutline      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 1);
+    PlayerTextDrawSetProportional (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 1);
+    PlayerTextDrawTextSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 10.0, 138.0);
+    PlayerTextDrawSetSelectable   (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_PAGE], 1);
 
     g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY] =
-    CreatePlayerTextDraw            (playerid, 116.0, 151.0, "Category");
-    PlayerTextDrawAlignment            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 2);
-    PlayerTextDrawBackgroundColor    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 255);
-    PlayerTextDrawFont                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 1);
-    PlayerTextDrawLetterSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 0.2, 1.0);
-    PlayerTextDrawColor                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], RGBA_WHITE);
-    PlayerTextDrawSetOutline        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 1);
-    PlayerTextDrawSetProportional    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 1);
-    PlayerTextDrawTextSize            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 10.0, 230.0);
-    PlayerTextDrawSetSelectable        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 1);
+    CreatePlayerTextDraw          (playerid, 116.0, 151.0, "Category");
+    PlayerTextDrawAlignment       (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 2);
+    PlayerTextDrawBackgroundColor (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 255);
+    PlayerTextDrawFont            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 1);
+    PlayerTextDrawLetterSize      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 0.2, 1.0);
+    PlayerTextDrawColor           (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], RGBA_WHITE);
+    PlayerTextDrawSetOutline      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 1);
+    PlayerTextDrawSetProportional (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 1);
+    PlayerTextDrawTextSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 10.0, 230.0);
+    PlayerTextDrawSetSelectable   (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_CATEGORY], 1);
 
     g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH] =
-    CreatePlayerTextDraw            (playerid, 116.0, 164.0, "Search:");
-    PlayerTextDrawAlignment            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 2);
-    PlayerTextDrawBackgroundColor    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 255);
-    PlayerTextDrawFont                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 1);
-    PlayerTextDrawLetterSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 0.2, 1.0);
-    PlayerTextDrawColor                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], RGBA_WHITE);
-    PlayerTextDrawSetOutline        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 1);
-    PlayerTextDrawSetProportional    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 1);
-    PlayerTextDrawTextSize            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 10.0, 230.0);
-    PlayerTextDrawSetSelectable        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 1);
+    CreatePlayerTextDraw          (playerid, 116.0, 164.0, "Search:");
+    PlayerTextDrawAlignment       (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 2);
+    PlayerTextDrawBackgroundColor (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 255);
+    PlayerTextDrawFont            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 1);
+    PlayerTextDrawLetterSize      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 0.2, 1.0);
+    PlayerTextDrawColor           (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], RGBA_WHITE);
+    PlayerTextDrawSetOutline      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 1);
+    PlayerTextDrawSetProportional (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 1);
+    PlayerTextDrawTextSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 10.0, 230.0);
+    PlayerTextDrawSetSelectable   (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_SEARCH], 1);
 
     for(new row, Float:y = 190.0; row < MAX_TEXTURELIST_ROWS; row ++, y += 13.0) {
         g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row] =
-        CreatePlayerTextDraw            (playerid, 1.0, y, "ROW");
-        PlayerTextDrawBackgroundColor    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 255);
-        PlayerTextDrawFont                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 1);
-        PlayerTextDrawLetterSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 0.2, 1.0);
-        PlayerTextDrawColor                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], RGBA_WHITE);
-        PlayerTextDrawSetOutline        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 1);
-        PlayerTextDrawSetProportional    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 1);
-        PlayerTextDrawUseBox            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 1);
-        PlayerTextDrawBoxColor            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 0);
-        PlayerTextDrawTextSize            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 40.0, 10.0);
-        PlayerTextDrawSetSelectable        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 1);
+        CreatePlayerTextDraw          (playerid, 1.0, y, "ROW");
+        PlayerTextDrawBackgroundColor (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 255);
+        PlayerTextDrawFont            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 1);
+        PlayerTextDrawLetterSize      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 0.2, 1.0);
+        PlayerTextDrawColor           (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], RGBA_WHITE);
+        PlayerTextDrawSetOutline      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 1);
+        PlayerTextDrawSetProportional (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 1);
+        PlayerTextDrawUseBox          (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 1);
+        PlayerTextDrawBoxColor        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 0);
+        PlayerTextDrawTextSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 40.0, 10.0);
+        PlayerTextDrawSetSelectable   (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_MID][row], 1);
 
         g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row] =
-        CreatePlayerTextDraw            (playerid, 43.0, y, "ROW");
-        PlayerTextDrawBackgroundColor    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 255);
-        PlayerTextDrawFont                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 1);
-        PlayerTextDrawLetterSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 0.2, 1.0);
-        PlayerTextDrawColor                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], RGBA_WHITE);
-        PlayerTextDrawSetOutline        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 1);
-        PlayerTextDrawSetProportional    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 1);
-        PlayerTextDrawUseBox            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 1);
-        PlayerTextDrawBoxColor            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 0);
-        PlayerTextDrawTextSize            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 110.0, 10.0);
-        PlayerTextDrawSetSelectable        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 1);
+        CreatePlayerTextDraw          (playerid, 43.0, y, "ROW");
+        PlayerTextDrawBackgroundColor (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 255);
+        PlayerTextDrawFont            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 1);
+        PlayerTextDrawLetterSize      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 0.2, 1.0);
+        PlayerTextDrawColor           (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], RGBA_WHITE);
+        PlayerTextDrawSetOutline      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 1);
+        PlayerTextDrawSetProportional (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 1);
+        PlayerTextDrawUseBox          (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 1);
+        PlayerTextDrawBoxColor        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 0);
+        PlayerTextDrawTextSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 110.0, 10.0);
+        PlayerTextDrawSetSelectable   (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_TXD][row], 1);
 
         g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row] =
-        CreatePlayerTextDraw            (playerid, 113.0, y, "ROW");
-        PlayerTextDrawBackgroundColor    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 255);
-        PlayerTextDrawFont                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 1);
-        PlayerTextDrawLetterSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 0.2, 1.0);
-        PlayerTextDrawColor                (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], RGBA_WHITE);
-        PlayerTextDrawSetOutline        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 1);
-        PlayerTextDrawSetProportional    (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 1);
-        PlayerTextDrawUseBox            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 1);
-        PlayerTextDrawBoxColor            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 0);
-        PlayerTextDrawTextSize            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 231.0, 10.0);
-        PlayerTextDrawSetSelectable        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 1);
+        CreatePlayerTextDraw          (playerid, 113.0, y, "ROW");
+        PlayerTextDrawBackgroundColor (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 255);
+        PlayerTextDrawFont            (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 1);
+        PlayerTextDrawLetterSize      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 0.2, 1.0);
+        PlayerTextDrawColor           (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], RGBA_WHITE);
+        PlayerTextDrawSetOutline      (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 1);
+        PlayerTextDrawSetProportional (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 1);
+        PlayerTextDrawUseBox          (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 1);
+        PlayerTextDrawBoxColor        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 0);
+        PlayerTextDrawTextSize        (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 231.0, 10.0);
+        PlayerTextDrawSetSelectable   (playerid, g_TextureListPTD[playerid][TEXTURELIST_PTD_ROW_NAME][row], 1);
     }
 }
 

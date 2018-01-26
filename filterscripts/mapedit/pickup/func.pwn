@@ -29,8 +29,13 @@ ShowPickupDialog(playerid, dialogid) {
                         strcat(g_DialogInfo, "Duplicate\t \n");
                     }
                     case LISTITEM_PICKUP_COMMENT: {
-                        strunpack(g_CommentString, g_PickupData[pickupid][PICKUP_DATA_COMMENT], MAX_COMMENT_LEN+1); // Get Comment
+                        strunpack(g_CommentString, g_PickupData[pickupid][PICKUP_DATA_COMMENT], sizeof g_CommentString); // Get Comment
                         format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Comment\t%s\n", g_CommentString);
+                        strcat(g_DialogInfo, g_DialogInfoRow);
+                    }
+                    case LISTITEM_PICKUP_COMMENT_RESET: {
+                        GetModelName(g_PickupData[pickupid][PICKUP_DATA_MODEL], g_ModelString, sizeof g_ModelString);
+                        format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Reset Comment To\t%s\n", g_ModelString);
                         strcat(g_DialogInfo, g_DialogInfoRow);
                     }
                     default: {
@@ -61,7 +66,7 @@ ShowPickupDialog(playerid, dialogid) {
                 return 1;
             }
 
-            strunpack(g_CommentString, g_PickupData[pickupid][PICKUP_DATA_COMMENT], MAX_COMMENT_LEN+1);
+            strunpack(g_CommentString, g_PickupData[pickupid][PICKUP_DATA_COMMENT], sizeof g_CommentString);
             format(g_DialogInfo, sizeof g_DialogInfo, "Current Comment: %s", g_CommentString);
             ShowPlayerDialog(playerid, dialogid, DIALOG_STYLE_INPUT, "Pickup Comment", g_DialogInfo, "Enter", "Cancel");
         }

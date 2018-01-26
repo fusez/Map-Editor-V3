@@ -49,6 +49,11 @@ ShowVehicleDialog(playerid, dialogid) {
                         format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Comment\t%s\n", g_CommentString);
                         strcat(g_DialogInfo, g_DialogInfoRow);
                     }
+                    case LISTITEM_VEHICLE_COMMENT_RESET: {
+                        GetVehicleModelName(GetVehicleModel(vehicleid), g_VehModelString, sizeof g_VehModelString);
+                        format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Reset Comment To\t%s\n", g_VehModelString);
+                        strcat(g_DialogInfo, g_DialogInfoRow);
+                    }
                     case LISTITEM_VEHICLE_COLOR1: {
                         new colorid = g_VehicleData[vehicleid-1][VEHICLE_DATA_COLOR_1];
                         if( colorid == INVALID_COLOR_ID ) {

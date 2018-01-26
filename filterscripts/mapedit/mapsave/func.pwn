@@ -121,15 +121,15 @@ SaveMap(mapname[], playerid = INVALID_PLAYER_ID) {
         for(new materialindex; materialindex < MAX_OBJECT_INDEX; materialindex ++) {
             switch( g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_TYPE][materialindex] ) {
                 case MATERIALINDEX_TYPE_TEXTURE: {
-                    new textureid = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_TEXTURE][materialindex];
-                    if(textureid == INVALID_TEXTURE_ID) {
-                        continue;
-                    }
+                    new
+						textureid = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_TEXTURE][materialindex],
+                        modelid,
+						txd[MAX_TEXTURE_TXD+1],
+						name[MAX_TEXTURE_NAME+1]
+					;
 
-                    new modelid, txd[MAX_TEXTURE_TXD+1], name[MAX_TEXTURE_NAME+1];
-                    if(!GetTextureData(textureid, modelid, txd, MAX_TEXTURE_TXD+1, name, MAX_TEXTURE_NAME+1)) {
-                        continue;
-                    }
+
+                    GetTextureData(textureid, modelid, txd, sizeof txd, name, sizeof name);
 
                     format(write_string, sizeof write_string,
                         "SetObjectMaterial(g_Object[%i], %i, %i, \"%s\", \"%s\", 0x%08x);\r\n",    o, materialindex, modelid, txd, name, g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_COLOR][materialindex]

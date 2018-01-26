@@ -144,6 +144,10 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) {
                 case LISTITEM_PICKUP_COMMENT: {
                     return ShowPickupDialog(playerid, DIALOGID_PICKUP_COMMENT), 1;
                 }
+                case LISTITEM_PICKUP_COMMENT_RESET: {
+                    GetModelName(g_PickupData[pickupid][PICKUP_DATA_MODEL], g_CommentString, sizeof g_CommentString);
+                    strpack(g_PickupData[pickupid][PICKUP_DATA_COMMENT], g_CommentString, MAX_COMMENT_LEN+1); // Set Pickup Comment
+                }
             }
 
             return ShowPickupDialog(playerid, dialogid), 1;

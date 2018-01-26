@@ -5,6 +5,9 @@ LoadModelColorCache() {
         colorid = db_get_field_assoc_int(g_DBResult, "colorid");
         if( IsValidModelColor(colorid) ) {
             g_ModelColorCache[colorid][MODELCOLOR_CACHE_RGB] = db_get_field_assoc_int(g_DBResult, "rgb");
+
+            db_get_field_assoc(g_DBResult, "name", g_ModelColorString, sizeof g_ModelColorString);
+            strpack(g_ModelColorCache[colorid][MODELCOLOR_CACHE_NAME], g_ModelColorString, MAX_MODELCOLOR_NAMELEN+1);
         }
         db_next_row(g_DBResult);
     }
@@ -17,6 +20,13 @@ GetModelColorRGB(colorid) {
         return g_ModelColorCache[colorid][MODELCOLOR_CACHE_RGB];
     }
     return 0x000000;
+}
+
+GetModelColorName(colorid, name[], name_size) {
+	if( IsValidModelColor(colorid) ) {
+		return strunpack(name, g_ModelColorCache[colorid][MODELCOLOR_CACHE_NAME], name_size), 1;
+	}
+    return format(name, name_size, "Unknown Color"), 0;
 }
 
 FindModelColors(result[], result_size, search[], offset, &max_offset) {

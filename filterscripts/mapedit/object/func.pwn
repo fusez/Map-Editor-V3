@@ -365,22 +365,40 @@ ShowObjectDialog(playerid, dialogid) {
                         format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Comment\t%s\n", g_CommentString);
                         strcat(g_DialogInfo, g_DialogInfoRow);
                     }
+                    case LISTITEM_OBJECT_COMMENT_RESET: {
+                        GetModelName(GetObjectModel(objectid), g_ModelString, sizeof g_ModelString);
+                        format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Reset Comment To\t%s\n", g_ModelString);
+                        strcat(g_DialogInfo, g_DialogInfoRow);
+                    }
                     case LISTITEM_OBJECT_INDEX_START..LISTITEM_OBJECT_INDEX_END: {
                         new materialindex = listitem - LISTITEM_OBJECT_INDEX_START;
                         switch( g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_TYPE][materialindex] ) {
                             case MATERIALINDEX_TYPE_TEXTURE: {
-                                new textureid = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_TEXTURE][materialindex];
+                                new
+                                    textureid = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_TEXTURE][materialindex],
+                                    color_argb = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_COLOR],
+                                    color_rgb = ARGBtoRGB(color_argb)
+                                ;
+
                                 if( textureid == INVALID_TEXTURE_ID ) {
-                                    format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Material Index %i\tcolor\n", materialindex);
+                                    format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Material Index %i\t{%06x}Color\n", materialindex, color_rgb);
                                 } else {
-                                    format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Material Index %i\ttexture\n", materialindex);
+                                    new modelid;
+                                    GetTextureData(textureid, modelid, g_TextureTXDString, sizeof g_TextureTXDString, g_TextureNameString, sizeof g_TextureNameString);
+                                    format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Material Index %i\t{%06x}%i %s %s\n", materialindex, color_rgb, modelid, g_TextureTXDString, g_TextureNameString);
                                 }
                             }
                             case MATERIALINDEX_TYPE_TEXT: {
-                                format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Material Index %i\ttext\n", materialindex);
+                                new
+                                    color_argb = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_FONTCOLOR],
+                                    color_rgb = ARGBtoRGB(color_argb)
+                                ;
+
+                                strunpack(g_ObjectTextString, g_ObjectText[objectid-1][materialindex], sizeof g_ObjectTextString);
+                                format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Material Index %i\t{%06x}%s\n", materialindex, color_rgb, g_ObjectTextString);
                             }
                             default: {
-                                format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Material Index %i\tdefault / unknown\n", materialindex);
+                                format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Material Index %i\tDefault / Unknown\n", materialindex);
                             }
                         }
                         strcat(g_DialogInfo, g_DialogInfoRow);
@@ -414,11 +432,17 @@ ShowObjectDialog(playerid, dialogid) {
                     }
                     case LISTITEM_OINDEX_MAT: {
                         if( indextype == MATERIALINDEX_TYPE_TEXTURE ) {
-                            new textureid = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_TEXTURE][materialindex];
-                            format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Texture\tID\t%i\n", textureid );
+                            new
+                                textureid = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_TEXTURE][materialindex],
+                                modelid
+                            ;
+
+                            GetTextureData(textureid, modelid, g_TextureTXDString, sizeof g_TextureTXDString, g_TextureNameString, sizeof g_TextureNameString);
+
+                            format(g_DialogInfoRow, sizeof g_DialogInfoRow, "Texture\tTexture\t%i %s %s\n", modelid, g_TextureTXDString, g_TextureNameString);
                             strcat(g_DialogInfo, g_DialogInfoRow);
                         } else {
-                            strcat(g_DialogInfo, "Texture\tID\t-\n");
+                            strcat(g_DialogInfo, "Texture\tTexture\t-\n");
                         }
                     }
                     case LISTITEM_OINDEX_MAT_COLOR_S: {
