@@ -153,11 +153,13 @@ MapLoad(mapname[], playerid = INVALID_PLAYER_ID) {
     while( fread(file_handle, buffer) ) {
         strtrim(buffer);
 
-        if( sscanf(buffer, "p<(>s[100]p<)>s[300]S(no comment)[100]", func, params, comment) ) {
+        if( sscanf(buffer, "p<(>s[100]p<;>s[300]S(no comment)[100]", func, params, comment) ) {
             continue;
         }
 
-        strtrim(comment, " ;/");
+        strtrim(params, " )");
+        strtrim(comment, " /");
+
         if( isempty(comment) ) {
             format(comment, sizeof comment, "no comment");
         }
