@@ -68,8 +68,30 @@ public OnPlayerConnect(playerid) {
     forward cmode_OnPlayerConnect(playerid);
 #endif
 
+public OnPlayerSpawn(playerid) {
+	if( g_CamModeData[playerid][CAMMODE_DATA_TOGGLE] && IsValidPlayerObject(playerid, g_CamModeData[playerid][CAMMODE_DATA_POID]) ) {
+        TogglePlayerSpectating(playerid, true);
+        AttachCameraToPlayerObject(playerid, g_CamModeData[playerid][CAMMODE_DATA_POID]);
+	}
+
+    #if defined cmode_OnPlayerSpawn
+        return cmode_OnPlayerSpawn(playerid);
+    #else
+        return 1;
+    #endif
+}
+#if defined _ALS_OnPlayerSpawn
+    #undef OnPlayerSpawn
+#else
+    #define _ALS_OnPlayerSpawn
+#endif
+#define OnPlayerSpawn cmode_OnPlayerSpawn
+#if defined cmode_OnPlayerSpawn
+    forward cmode_OnPlayerSpawn(playerid);
+#endif
+
 public OnPlayerStateChange(playerid, newstate, oldstate) {
-    if( g_CamModeData[playerid][CAMMODE_DATA_SPAWN_SAVED] && newstate == PLAYER_STATE_ONFOOT ) {
+    if( !g_CamModeData[playerid][CAMMODE_DATA_TOGGLE] && g_CamModeData[playerid][CAMMODE_DATA_SPAWN_SAVED] && newstate == PLAYER_STATE_ONFOOT ) {
         SetPlayerPos(playerid, g_CamModeData[playerid][CAMMODE_DATA_SPAWN_X], g_CamModeData[playerid][CAMMODE_DATA_SPAWN_Y], g_CamModeData[playerid][CAMMODE_DATA_SPAWN_Z]);
         g_CamModeData[playerid][CAMMODE_DATA_SPAWN_SAVED] = false;
     }

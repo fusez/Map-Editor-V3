@@ -4,7 +4,7 @@
 
 native IsValidVehicle(vehicleid);
 
-#pragma dynamic 17150 // To avoid warnings at compiling
+#pragma dynamic 19100 // To avoid warnings at compiling
 
 //------------------------------------------------------------------------------
 // Defined Values & Enumerators
@@ -64,6 +64,8 @@ native IsValidVehicle(vehicleid);
 #include "mapedit/textureview/value.pwn"
 #include "mapedit/maplist/value.pwn"
 #include "mapedit/moneyrefill/value.pwn"
+#include "mapedit/building/value.pwn"
+#include "mapedit/buildlist/value.pwn"
 
 //------------------------------------------------------------------------------
 // Variables
@@ -106,6 +108,8 @@ new
 #include "mapedit/pattach/var.pwn"
 #include "mapedit/maplist/var.pwn"
 #include "mapedit/maploaded/var.pwn"
+#include "mapedit/building/var.pwn"
+#include "mapedit/buildlist/var.pwn"
 
 //------------------------------------------------------------------------------
 // Macros
@@ -126,6 +130,7 @@ new
 #include "mapedit/vehcolor/macro.pwn"
 #include "mapedit/modelcolor/macro.pwn"
 #include "mapedit/matalign/macro.pwn"
+#include "mapedit/building/macro.pwn"
 
 //------------------------------------------------------------------------------
 // Hooked Functions
@@ -187,6 +192,8 @@ GetMapFilePath(mapname[], path[], path_size) {
 #include "mapedit/maplist/func.pwn"
 #include "mapedit/maploaded/func.pwn"
 #include "mapedit/mapdb/func.pwn"
+#include "mapedit/building/func.pwn"
+#include "mapedit/buildlist/func.pwn"
 
 //------------------------------------------------------------------------------
 // Callbacks
@@ -352,4 +359,6 @@ public OnPlayerClickMap(playerid, Float:fX, Float:fY, Float:fZ) {
 #include "mapedit/maplist/call.pwn"
 #include "mapedit/maploaded/call.pwn"
 #include "mapedit/moneyrefill/call.pwn"
+#include "mapedit/building/call.pwn"
+#include "mapedit/buildlist/call.pwn"
 #include "mapedit/printsuccess/call.pwn" // has to be at the end of callback list, prints a message if called

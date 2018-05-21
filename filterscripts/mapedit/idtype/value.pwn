@@ -6,5 +6,6 @@ enum {
     ID_TYPE_ATTACH,
     ID_TYPE_ACTOR,
     ID_TYPE_PLAYER,
+    ID_TYPE_BUILDING,
     MAX_ID_TYPES
 }

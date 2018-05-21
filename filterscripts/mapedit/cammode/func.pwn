@@ -16,6 +16,8 @@ ToggleCam(playerid, bool:toggle) {
         return 0;
     }
 
+    g_CamModeData[playerid][CAMMODE_DATA_TOGGLE] = toggle;
+
     if( toggle ) {
         new Float:x, Float:y, Float:z;
 
@@ -55,7 +57,5 @@ ToggleCam(playerid, bool:toggle) {
         TogglePlayerSpectating(playerid, false);
         GameTextForPlayer(playerid, "~w~camera mode ~r~untoggled", 2000, 4);
     }
-
-    g_CamModeData[playerid][CAMMODE_DATA_TOGGLE] = toggle;
     return 1;
 }

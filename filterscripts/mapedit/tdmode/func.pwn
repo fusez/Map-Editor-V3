@@ -34,6 +34,9 @@ ShowPlayerTextdrawMode(playerid, tdmode) {
         case TDMODE_CATMANAGER_MODELS, TDMODE_CATMANAGER_VEHICLES, TDMODE_CATMANAGER_SKINS, TDMODE_CATMANAGER_TEXTURES: {
             ShowCategoryManager(playerid);
         }
+        case TDMODE_BUILDLIST: {
+            ShowBuildList(playerid);
+        }
         default: {
             return 0;
         }
@@ -66,6 +69,9 @@ HidePlayerTextdrawMode(playerid) {
         }
         case TDMODE_CATMANAGER_MODELS, TDMODE_CATMANAGER_VEHICLES, TDMODE_CATMANAGER_SKINS, TDMODE_CATMANAGER_TEXTURES: {
             HideCategoryManager(playerid);
+        }
+        case TDMODE_BUILDLIST: {
+            HideBuildList(playerid);
         }
         default: {
             return 0;

@@ -6,31 +6,35 @@ Float:fixrot(Float:r) {
     return r;
 }
 
-PositionFromObjectOffset(objectid, Float:offset_x, Float:offset_y, Float:offset_z, &Float:x, &Float:y, &Float:z) {
-	// Renamed GetAttachedObjectPos (Original made by Stylock)
+Float:GetDistanceBetweenPoints(Float:x1, Float:y1, Float:z1, Float:x2, Float:y2, Float:z2) {
+    return VectorSize(x1-x2, y1-y2, z1-z2);
+}
 
+// Renamed GetAttachedObjectPos (Original made by Stylock)
+PositionFromOffset(
+	Float:  input_x,
+	Float:  input_y,
+	Float:  input_z,
+	Float:  input_rx,
+    Float:  input_ry,
+    Float:  input_rz,
+    Float:  offset_x,
+	Float:  offset_y,
+	Float:  offset_z,
+	&Float: ret_x,
+	&Float: ret_y,
+	&Float: ret_z
+) {
     new
-        Float:object_px,
-        Float:object_py,
-        Float:object_pz,
-        Float:object_rx,
-        Float:object_ry,
-        Float:object_rz
+        Float:cos_x = floatcos(input_rx, degrees),
+        Float:cos_y = floatcos(input_ry, degrees),
+        Float:cos_z = floatcos(input_rz, degrees),
+        Float:sin_x = floatsin(input_rx, degrees),
+        Float:sin_y = floatsin(input_ry, degrees),
+        Float:sin_z = floatsin(input_rz, degrees)
     ;
 
-    GetObjectPos(objectid, object_px, object_py, object_pz);
-    GetObjectRot(objectid, object_rx, object_ry, object_rz);
-
-    new
-        Float:cos_x = floatcos(object_rx, degrees),
-        Float:cos_y = floatcos(object_ry, degrees),
-        Float:cos_z = floatcos(object_rz, degrees),
-        Float:sin_x = floatsin(object_rx, degrees),
-        Float:sin_y = floatsin(object_ry, degrees),
-        Float:sin_z = floatsin(object_rz, degrees)
-    ;
-
-    x = object_px + offset_x * cos_y * cos_z - offset_x * sin_x * sin_y * sin_z - offset_y * cos_x * sin_z + offset_z * sin_y * cos_z + offset_z * sin_x * cos_y * sin_z;
-    y = object_py + offset_x * cos_y * sin_z + offset_x * sin_x * sin_y * cos_z + offset_y * cos_x * cos_z + offset_z * sin_y * sin_z - offset_z * sin_x * cos_y * cos_z;
-    z = object_pz - offset_x * cos_x * sin_y + offset_y * sin_x + offset_z * cos_x * cos_y;
+    ret_x = input_x + offset_x * cos_y * cos_z - offset_x * sin_x * sin_y * sin_z - offset_y * cos_x * sin_z + offset_z * sin_y * cos_z + offset_z * sin_x * cos_y * sin_z;
+    ret_y = input_y + offset_x * cos_y * sin_z + offset_x * sin_x * sin_y * cos_z + offset_y * cos_x * cos_z + offset_z * sin_y * sin_z - offset_z * sin_x * cos_y * cos_z;
+    ret_z = input_z - offset_x * cos_x * sin_y + offset_y * sin_x + offset_z * cos_x * cos_y;
 }

@@ -1,5 +1,5 @@
 public OnPlayerClickTextDraw(playerid, Text:clickedid) {
-     if( clickedid == Text: INVALID_TEXT_DRAW ) {
+    if( clickedid == Text: INVALID_TEXT_DRAW ) {
         g_PlayerData[playerid][PLAYER_DATA_SELECTTD] = false;
     }
 

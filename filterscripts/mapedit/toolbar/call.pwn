@@ -249,7 +249,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid) {
         return 1;
     }
     if( clickedid == g_ToolbarTextdraw[TD_TOOLBAR_MAP_SAVE] ) {
-		ShowMapSaveDialog(playerid, DIALOGID_MAP_SAVE_CONFIRM);
+        ShowMapSaveDialog(playerid, DIALOGID_MAP_SAVE_CONFIRM);
         return 1;
     }
     if( clickedid == g_ToolbarTextdraw[TD_TOOLBAR_MAP_SAVEAS] ) {
@@ -269,10 +269,13 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid) {
         ToggleCam(playerid, g_CamModeData[playerid][CAMMODE_DATA_TOGGLE] ? false : true);
         return 1;
     }
-    if( clickedid == g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY] ) {
+    if( clickedid == g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_MODEL] ) {
+        return ShowPlayerTextdrawMode(playerid, TDMODE_BUILDLIST);
+    }
+    if( clickedid == g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY] ) {
         return ShowPlayerTextdrawMode(playerid, TDMODE_CATMANAGER_MODELS), 1;
     }
-    if( clickedid == g_ToolbarTextdraw[TD_TOOLBAR_HELP_MODEL] ) {
+    if( clickedid == g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO] ) {
         return ShowPlayerTextdrawMode(playerid, TDMODE_HELP_INFO), 1;
     }
 

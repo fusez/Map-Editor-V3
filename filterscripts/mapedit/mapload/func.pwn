@@ -130,7 +130,16 @@ mapload_ResetVariables() {
     }
 }
 
-MapLoad(mapname[], playerid = INVALID_PLAYER_ID) {
+MapLoad(
+    mapname[],
+    &objects_loaded,
+    &vehicles_loaded,
+    &pickups_loaded,
+    &actors_loaded,
+    &attachments_loaded,
+    &buildings_loaded,
+    playerid = INVALID_PLAYER_ID
+) {
     GetMapFilePath(mapname, g_FilePathString, sizeof g_FilePathString);
     if( !fexist(g_FilePathString) ) {
         return 0;
@@ -193,6 +202,8 @@ MapLoad(mapname[], playerid = INVALID_PLAYER_ID) {
                 strtrim(varname, " ");
                 mapload_CreateVarname(objectid, ID_TYPE_OBJECT, varname);
             }
+            
+            objects_loaded ++;
         }
 
         else if(
@@ -227,6 +238,8 @@ MapLoad(mapname[], playerid = INVALID_PLAYER_ID) {
                 strtrim(varname, " ");
                 mapload_CreateVarname(vehicleid, ID_TYPE_VEHICLE, varname);
             }
+            
+            vehicles_loaded ++;
         }
 
         else if(
@@ -249,6 +262,8 @@ MapLoad(mapname[], playerid = INVALID_PLAYER_ID) {
             if( pickupid != INVALID_PICKUP_ID ) {
                 strpack(g_PickupData[pickupid][PICKUP_DATA_COMMENT], comment, MAX_COMMENT_LEN+1); // Set Comment
             }
+            
+            pickups_loaded ++;
          }
 
         else if( strfind(func, "CreateActor") != -1 ) {
@@ -277,6 +292,8 @@ MapLoad(mapname[], playerid = INVALID_PLAYER_ID) {
                 strtrim(varname, " ");
                 mapload_CreateVarname(actorid, ID_TYPE_ACTOR, varname);
             }
+            
+            actors_loaded ++;
         }
 
         else if( strfind(func, "SetObjectMaterialText") != -1 ) {
@@ -343,7 +360,7 @@ MapLoad(mapname[], playerid = INVALID_PLAYER_ID) {
                 texturename[100],
                 matcolor,
                 objectid,
-                   textureid
+                textureid
             ;
 
             if(
@@ -543,6 +560,8 @@ MapLoad(mapname[], playerid = INVALID_PLAYER_ID) {
             g_PlayerAttachData[playerid][index][PLAYERATTACH_DATA_COLOR1] = color1;
             g_PlayerAttachData[playerid][index][PLAYERATTACH_DATA_COLOR2] = color2;
             ApplyPlayerAttachData(playerid, index);
+            
+            attachments_loaded ++;
         }
 
         else if( strfind(func, "ApplyActorAnimation") != -1 ) {
@@ -587,6 +606,46 @@ MapLoad(mapname[], playerid = INVALID_PLAYER_ID) {
             g_ActorData[actorid][ACTOR_DATA_ANIM_TIME] = time;
 
             ApplyActorAnimationData(actorid);
+        }
+        
+        else if( strfind(func, "RemoveBuildingForPlayer") != -1 ) {
+            static
+                modelid,
+                Float:x,
+                Float:y,
+                Float:z,
+                Float:radius,
+                building_array[BUILDING_DATA_SIZE],
+                buildings_found
+            ;
+
+            if( sscanf(params, "p<,>{s[50]}iffff", modelid, x, y, z, radius) ) {
+                continue;
+            }
+            
+            buildings_found = GetBuildingsInRange(
+                .result = building_array,
+                .result_size = BUILDING_DATA_SIZE,
+                .search_modelid = modelid,
+                .search_x = x,
+                .search_y = y,
+                .search_z = z,
+                .search_radius = radius
+            );
+
+            for(new b, buildingid; b < buildings_found; b ++) {
+                buildingid = building_array[b];
+
+                if( g_BuildingData[buildingid][BUILDING_DATA_ISREMOVED] ) {
+                    continue;
+                }
+
+                g_BuildingData[buildingid][BUILDING_DATA_ISREMOVED] = true;
+
+                RemoveBuildingIDForAll(buildingid);
+
+                buildings_loaded ++;
+            }
         }
     }
 

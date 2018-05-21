@@ -281,6 +281,10 @@ CreateGenericHelpWindow() {
                 TextDrawSetString(g_HelpGTD[HELP_GTD_CREDIT_L][row], "Pottus");
                 TextDrawSetString(g_HelpGTD[HELP_GTD_CREDIT_R][row], "Textures");
             }
+            case HELP_CREDIT_BUILDINGS: {
+                TextDrawSetString(g_HelpGTD[HELP_GTD_CREDIT_L][row], "Pottus");
+                TextDrawSetString(g_HelpGTD[HELP_GTD_CREDIT_R][row], "Buildings");
+            }
             case HELP_CREDIT_MODELNAMES: {
                 TextDrawSetString(g_HelpGTD[HELP_GTD_CREDIT_L][row], "SuperViper");
                 TextDrawSetString(g_HelpGTD[HELP_GTD_CREDIT_R][row], "Model Names");

@@ -6,7 +6,7 @@ ShowMapSaveDialog(playerid, dialogid) {
         case DIALOGID_MAP_SAVE_CONFIRM: {
             format(g_DialogInfo, sizeof g_DialogInfo, "Type & Enter \"%s\" to save this map.", SAVEMAP_COMMAND);
             ShowPlayerDialog(playerid, dialogid, DIALOG_STYLE_INPUT, "Save Map", g_DialogInfo, "Save", "Cancel");
-		}
+        }
         default: {
             return 0;
         }
@@ -14,7 +14,16 @@ ShowMapSaveDialog(playerid, dialogid) {
     return 1;
 }
 
-SaveMap(mapname[], playerid = INVALID_PLAYER_ID) {
+SaveMap(
+    mapname[],
+    &objects_saved,
+    &vehicles_saved,
+    &pickups_saved,
+    &actors_saved,
+    &attachments_saved,
+    &buildings_saved,
+    playerid = INVALID_PLAYER_ID
+) {
     GetMapFilePath(mapname, g_FilePathString, sizeof g_FilePathString);
 
     new File:file_handle = fopen(g_FilePathString, io_write);
@@ -24,19 +33,17 @@ SaveMap(mapname[], playerid = INVALID_PLAYER_ID) {
 
     new
         slot_objectid   [MAX_OBJECTS],
-        objectid_slot    [MAX_OBJECTS],
+        objectid_slot   [MAX_OBJECTS],
         valid_objects,
 
         slot_vehicleid  [MAX_VEHICLES],
-        vehicleid_slot    [MAX_VEHICLES],
+        vehicleid_slot  [MAX_VEHICLES],
         valid_vehicles,
 
         slot_pickupid   [MAX_PICKUPS],
-        pickupid_slot   [MAX_PICKUPS],
         valid_pickups,
 
         slot_actorid    [MAX_ACTORS],
-        actorid_slot    [MAX_ACTORS],
         valid_actors
     ;
 
@@ -63,17 +70,15 @@ SaveMap(mapname[], playerid = INVALID_PLAYER_ID) {
             continue;
         }
 
-        slot_pickupid[valid_pickups] = pickupid;
-        pickupid_slot[pickupid] = valid_pickups ++;
+        slot_pickupid[valid_pickups ++] = pickupid;
     }
 
     for(new actorid, max_actorid = GetActorPoolSize(); actorid <= max_actorid; actorid ++) {
-        if(!IsValidActor(actorid)) {
+        if( !IsValidActor(actorid) ) {
             continue;
         }
 
-        slot_actorid[valid_actors] = actorid;
-        actorid_slot[actorid] = valid_actors ++;
+        slot_actorid[valid_actors ++] = actorid;
     }
 
     new write_string[500];
@@ -122,11 +127,11 @@ SaveMap(mapname[], playerid = INVALID_PLAYER_ID) {
             switch( g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_TYPE][materialindex] ) {
                 case MATERIALINDEX_TYPE_TEXTURE: {
                     new
-						textureid = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_TEXTURE][materialindex],
+                        textureid = g_ObjectData[objectid-1][OBJECT_DATA_MATINDEX_TEXTURE][materialindex],
                         modelid,
-						txd[MAX_TEXTURE_TXD+1],
-						name[MAX_TEXTURE_NAME+1]
-					;
+                        txd[MAX_TEXTURE_TXD+1],
+                        name[MAX_TEXTURE_NAME+1]
+                    ;
 
 
                     GetTextureData(textureid, modelid, txd, sizeof txd, name, sizeof name);
@@ -280,7 +285,7 @@ SaveMap(mapname[], playerid = INVALID_PLAYER_ID) {
         }
     }
 
-    if(playerid != INVALID_PLAYER_ID) {
+    if( playerid != INVALID_PLAYER_ID ) {
         new playername[MAX_PLAYER_NAME+1];
         GetPlayerName(playerid, playername, sizeof playername);
 
@@ -313,8 +318,53 @@ SaveMap(mapname[], playerid = INVALID_PLAYER_ID) {
                 playername
             );
             fwrite(file_handle, write_string);
+            
+            attachments_saved ++;
         }
     }
+
+    for(new b; b < BUILDING_DATA_SIZE; b ++) {
+        if( !g_BuildingData[b][BUILDING_DATA_ISLOADED] ) {
+            continue;
+        }
+
+        if( !g_BuildingData[b][BUILDING_DATA_ISREMOVED] ) {
+            continue;
+        }
+
+        GetModelName(g_BuildingData[b][BUILDING_DATA_MODEL], g_ModelString, sizeof g_ModelString);
+
+        format(write_string, sizeof write_string,
+            "RemoveBuildingForPlayer(playerid, %i, %.4f, %.4f, %.4f, %.2f); // %s\r\n",
+            g_BuildingData[b][BUILDING_DATA_MODEL],
+            g_BuildingData[b][BUILDING_DATA_X],
+            g_BuildingData[b][BUILDING_DATA_Y],
+            g_BuildingData[b][BUILDING_DATA_Z],
+            g_BuildingData[b][BUILDING_DATA_OFFSET] + REMOVE_BUILDING_RANGE,
+            g_ModelString
+        );
+        fwrite(file_handle, write_string);
+
+        if( g_BuildingData[b][BUILDING_DATA_LODMODEL] != INVALID_BUILDING_LODMODEL ) {
+            format(write_string, sizeof write_string,
+                "RemoveBuildingForPlayer(playerid, %i, %.4f, %.4f, %.4f, %.2f); // LOD Model of %s\r\n",
+                g_BuildingData[b][BUILDING_DATA_LODMODEL],
+                g_BuildingData[b][BUILDING_DATA_X],
+                g_BuildingData[b][BUILDING_DATA_Y],
+                g_BuildingData[b][BUILDING_DATA_Z],
+                g_BuildingData[b][BUILDING_DATA_OFFSET] + REMOVE_BUILDING_RANGE,
+                g_ModelString
+            );
+            fwrite(file_handle, write_string);
+        }
+
+        buildings_saved ++;
+    }
+
+    objects_saved = valid_objects;
+    vehicles_saved = valid_vehicles;
+    pickups_saved = valid_pickups;
+    actors_saved = valid_actors;
 
     fclose(file_handle);
     return 1;

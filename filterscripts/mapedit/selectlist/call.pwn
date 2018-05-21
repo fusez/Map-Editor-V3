@@ -252,7 +252,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid) {
         return 1;
     }
     for(new row; row < MAX_SELECTLIST_ROWS; row ++) {
-        if( playertextid == g_SelectListPTD[playerid][SELECTLIST_PTD_ID_ROW][row] || playertextid == g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_ROW][row] ) {
+        if( playertextid == g_SelectListPTD[playerid][SELECTLIST_PTD_ID_ROW][row] || playertextid == g_SelectListPTD[playerid][SELECTLIST_PTD_MODELID_ROW][row] || playertextid == g_SelectListPTD[playerid][SELECTLIST_PTD_COMMENT_ROW][row] ) {
             new
                 objectid = INVALID_OBJECT_ID,
                 vehicleid = INVALID_VEHICLE_ID,
@@ -359,18 +359,32 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid) {
 
                     if( IsValidObject(attachto_objectid) ) {
                         new
-                            Float:attach_off_x = g_ObjectData[objectid-1][OBJECT_DATA_ATTACH_X],
-                            Float:attach_off_y = g_ObjectData[objectid-1][OBJECT_DATA_ATTACH_Y],
-                            Float:attach_off_z = g_ObjectData[objectid-1][OBJECT_DATA_ATTACH_Z],
-                            Float:sphere_radius,
-                            Float:sphere_off_x,
-                            Float:sphere_off_y,
-                            Float:sphere_off_z
+                            Float: obj_x,
+                            Float: obj_y,
+                            Float: obj_z,
+                            Float: obj_rx,
+                            Float: obj_ry,
+                            Float: obj_rz,
+                            Float: attach_off_x = g_ObjectData[objectid-1][OBJECT_DATA_ATTACH_X],
+                            Float: attach_off_y = g_ObjectData[objectid-1][OBJECT_DATA_ATTACH_Y],
+                            Float: attach_off_z = g_ObjectData[objectid-1][OBJECT_DATA_ATTACH_Z],
+                            Float: sphere_radius,
+                            Float: sphere_off_x,
+                            Float: sphere_off_y,
+                            Float: sphere_off_z
                         ;
 
+						GetObjectPos(attachto_objectid, obj_x,  obj_y,  obj_z);
+						GetObjectRot(attachto_objectid, obj_rx, obj_ry, obj_rz);
                         GetModelSphere(GetObjectModel(objectid), sphere_radius, sphere_off_x, sphere_off_y, sphere_off_z);
 
-                        PositionFromObjectOffset(attachto_objectid,
+                        PositionFromOffset(
+							obj_x,
+							obj_y,
+							obj_z,
+							obj_rx,
+							obj_ry,
+							obj_rz,
                             attach_off_x + sphere_off_x,
                             attach_off_y + sphere_off_y,
                             attach_off_z + sphere_off_z,
@@ -417,7 +431,20 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid) {
 
                         GetModelSphere(GetObjectModel(objectid), sphere_radius, sphere_off_x, sphere_off_y, sphere_off_z);
 
-                        PositionFromObjectOffset(objectid, sphere_off_x, sphere_off_y, sphere_off_z, x, y, z);
+                        PositionFromOffset(
+							obj_x,
+							obj_y,
+							obj_z,
+							obj_rx,
+							obj_ry,
+							obj_rz,
+							sphere_off_x,
+							sphere_off_y,
+							sphere_off_z,
+							x,
+							y,
+							z
+						);
 
                         distance = sphere_radius + 1.0;
                     }
@@ -448,10 +475,10 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid) {
                 }
                 case TDMODE_SELECTLIST_PICKUP: {
                     new
-                        Float:sphere_radius,
-                        Float:sphere_off_x,
-                        Float:sphere_off_y,
-                        Float:sphere_off_z
+                        Float: sphere_radius,
+                        Float: sphere_off_x,
+                        Float: sphere_off_y,
+                        Float: sphere_off_z
                     ;
 
                     x = g_PickupData[pickupid][PICKUP_DATA_X];
@@ -476,7 +503,12 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid) {
             }
 
             if( g_CamModeData[playerid][CAMMODE_DATA_TOGGLE] ) {
-                new    Float:vec_x, Float:vec_y, Float:vec_z;
+                new
+					Float: vec_x,
+					Float: vec_y,
+					Float: vec_z
+				;
+
                 GetPlayerCameraFrontVector(playerid, vec_x, vec_y, vec_z);
 
                 x -= (vec_x * distance);

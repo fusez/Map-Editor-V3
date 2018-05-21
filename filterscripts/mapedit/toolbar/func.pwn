@@ -542,78 +542,92 @@ CreateToolbarTextdraws() {
     TextDrawSetOutline      (g_ToolbarTextdraw[TD_TOOLBAR_CAM_TEXT], 1);
     TextDrawSetProportional (g_ToolbarTextdraw[TD_TOOLBAR_CAM_TEXT], 1);
 
-    // Config
-    g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_BG] =
+    // Building
+    g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_BG] =
     TextDrawCreate          (303.0, 397.0, "_");
-    TextDrawAlignment       (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_BG], 2);
-    TextDrawLetterSize      (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_BG], 0.0, 5.5);
-    TextDrawUseBox          (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_BG], 1);
-    TextDrawBoxColor        (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_BG], 100);
-    TextDrawTextSize        (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_BG], 0.0, 42.0);
+    TextDrawAlignment       (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_BG], 2);
+    TextDrawLetterSize      (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_BG], 0.0, 5.5);
+    TextDrawUseBox          (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_BG], 1);
+    TextDrawBoxColor        (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_BG], 100);
+    TextDrawTextSize        (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_BG], 0.0, 42.0);
 
-    g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_MODEL] =
+    g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_MODEL] =
     TextDrawCreate          (283.0, 398.0, "_");
-    TextDrawBackgroundColor (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_MODEL], 0);
-    TextDrawFont            (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_MODEL], 5);
-    TextDrawColor           (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_MODEL], RGBA_WHITE);
-    TextDrawUseBox          (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_MODEL], 1);
-    TextDrawBoxColor        (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_MODEL], 0);
-    TextDrawTextSize        (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_MODEL], 40.0, 40.0);
-    TextDrawSetPreviewModel (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_MODEL], 19627);
-    TextDrawSetPreviewRot   (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_MODEL], 90.0, 320.0, 45.0, 0.7);
-    TextDrawSetSelectable   (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_MODEL], 0);
+    TextDrawBackgroundColor (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_MODEL], 0);
+    TextDrawFont            (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_MODEL], 5);
+    TextDrawColor           (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_MODEL], RGBA_WHITE);
+    TextDrawUseBox          (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_MODEL], 1);
+    TextDrawBoxColor        (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_MODEL], 0);
+    TextDrawTextSize        (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_MODEL], 40.0, 40.0);
+    TextDrawSetPreviewModel (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_MODEL], 9319);
+    TextDrawSetPreviewRot   (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_MODEL], 350.0, 0.0, 220.0, 0.8);
+    TextDrawSetSelectable   (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_MODEL], 1);
 
-    g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_TEXT] =
-    TextDrawCreate          (283.0, 437.0, "Config");
-    TextDrawBackgroundColor (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_TEXT], 255);
-    TextDrawFont            (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_TEXT], 1);
-    TextDrawLetterSize      (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_TEXT], 0.2, 1.0);
-    TextDrawColor           (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_TEXT], RGBA_WHITE);
-    TextDrawSetOutline      (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_TEXT], 1);
-    TextDrawSetProportional (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_TEXT], 1);
+    g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_TEXT] =
+    TextDrawCreate          (283.0, 437.0, "Buildings");
+    TextDrawBackgroundColor (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_TEXT], 255);
+    TextDrawFont            (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_TEXT], 1);
+    TextDrawLetterSize      (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_TEXT], 0.2, 1.0);
+    TextDrawColor           (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_TEXT], RGBA_WHITE);
+    TextDrawSetOutline      (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_TEXT], 1);
+    TextDrawSetProportional (g_ToolbarTextdraw[TD_TOOLBAR_BUILDING_TEXT], 1);
 
-    g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY] =
-    TextDrawCreate            (303.0, 384.0, "Categories");
-    TextDrawAlignment        (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY], 2);
-    TextDrawBackgroundColor    (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY], 255);
-    TextDrawFont            (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY], 1);
-    TextDrawLetterSize        (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY], 0.2, 1.0);
-    TextDrawColor            (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY], RGBA_WHITE);
-    TextDrawSetOutline        (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY], 1);
-    TextDrawSetProportional    (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY], 1);
-    TextDrawUseBox            (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY], 1);
-    TextDrawBoxColor        (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY], 100);
-    TextDrawTextSize        (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY], 10.0, 42.0);
-    TextDrawSetSelectable    (g_ToolbarTextdraw[TD_TOOLBAR_CONFIG_CATEGORY], 1);
+    // Misc
+    g_ToolbarTextdraw[TD_TOOLBAR_MISC_BG] =
+    TextDrawCreate          (258.0, 397.0, "_");
+    TextDrawAlignment       (g_ToolbarTextdraw[TD_TOOLBAR_MISC_BG], 2);
+    TextDrawLetterSize      (g_ToolbarTextdraw[TD_TOOLBAR_MISC_BG], 0.0, 5.5);
+    TextDrawUseBox          (g_ToolbarTextdraw[TD_TOOLBAR_MISC_BG], 1);
+    TextDrawBoxColor        (g_ToolbarTextdraw[TD_TOOLBAR_MISC_BG], 100);
+    TextDrawTextSize        (g_ToolbarTextdraw[TD_TOOLBAR_MISC_BG], 0.0, 42.0);
 
-    // Help
-    g_ToolbarTextdraw[TD_TOOLBAR_HELP_BG] =
-    TextDrawCreate         (258.0, 397.0, "_");
-    TextDrawAlignment      (g_ToolbarTextdraw[TD_TOOLBAR_HELP_BG], 2);
-    TextDrawLetterSize     (g_ToolbarTextdraw[TD_TOOLBAR_HELP_BG], 0.0, 5.5);
-    TextDrawUseBox         (g_ToolbarTextdraw[TD_TOOLBAR_HELP_BG], 1);
-    TextDrawBoxColor       (g_ToolbarTextdraw[TD_TOOLBAR_HELP_BG], 100);
-    TextDrawTextSize       (g_ToolbarTextdraw[TD_TOOLBAR_HELP_BG], 0.0, 42.0);
-
-    g_ToolbarTextdraw[TD_TOOLBAR_HELP_MODEL] =
+    g_ToolbarTextdraw[TD_TOOLBAR_MISC_MODEL] =
     TextDrawCreate          (238.0, 398.0, "_");
-    TextDrawBackgroundColor (g_ToolbarTextdraw[TD_TOOLBAR_HELP_MODEL], 0);
-    TextDrawFont            (g_ToolbarTextdraw[TD_TOOLBAR_HELP_MODEL], 5);
-    TextDrawColor           (g_ToolbarTextdraw[TD_TOOLBAR_HELP_MODEL], RGBA_WHITE);
-    TextDrawUseBox          (g_ToolbarTextdraw[TD_TOOLBAR_HELP_MODEL], 1);
-    TextDrawBoxColor        (g_ToolbarTextdraw[TD_TOOLBAR_HELP_MODEL], 0);
-    TextDrawTextSize        (g_ToolbarTextdraw[TD_TOOLBAR_HELP_MODEL], 40.0, 40.0);
-    TextDrawSetPreviewModel (g_ToolbarTextdraw[TD_TOOLBAR_HELP_MODEL], 1239);
-    TextDrawSetPreviewRot   (g_ToolbarTextdraw[TD_TOOLBAR_HELP_MODEL], 0.0, 0.0, 180.0, 1.0);
-    TextDrawSetSelectable   (g_ToolbarTextdraw[TD_TOOLBAR_HELP_MODEL], 1);
+    TextDrawBackgroundColor (g_ToolbarTextdraw[TD_TOOLBAR_MISC_MODEL], 0);
+    TextDrawFont            (g_ToolbarTextdraw[TD_TOOLBAR_MISC_MODEL], 5);
+    TextDrawColor           (g_ToolbarTextdraw[TD_TOOLBAR_MISC_MODEL], RGBA_WHITE);
+    TextDrawUseBox          (g_ToolbarTextdraw[TD_TOOLBAR_MISC_MODEL], 1);
+    TextDrawBoxColor        (g_ToolbarTextdraw[TD_TOOLBAR_MISC_MODEL], 0);
+    TextDrawTextSize        (g_ToolbarTextdraw[TD_TOOLBAR_MISC_MODEL], 40.0, 40.0);
+    TextDrawSetPreviewModel (g_ToolbarTextdraw[TD_TOOLBAR_MISC_MODEL], 19918);
+    TextDrawSetPreviewRot   (g_ToolbarTextdraw[TD_TOOLBAR_MISC_MODEL], 330.0, 0.0, 40.0, 1.0);
+    TextDrawSetSelectable   (g_ToolbarTextdraw[TD_TOOLBAR_MISC_MODEL], 0);
 
-    g_ToolbarTextdraw[TD_TOOLBAR_HELP_TEXT] =
-    TextDrawCreate          (238.0, 437.0, "Info");
-    TextDrawBackgroundColor (g_ToolbarTextdraw[TD_TOOLBAR_HELP_TEXT], 255);
-    TextDrawFont            (g_ToolbarTextdraw[TD_TOOLBAR_HELP_TEXT], 1);
-    TextDrawLetterSize      (g_ToolbarTextdraw[TD_TOOLBAR_HELP_TEXT], 0.2, 1.0);
-    TextDrawColor           (g_ToolbarTextdraw[TD_TOOLBAR_HELP_TEXT], RGBA_WHITE);
-    TextDrawSetOutline      (g_ToolbarTextdraw[TD_TOOLBAR_HELP_TEXT], 1);
+    g_ToolbarTextdraw[TD_TOOLBAR_MISC_TEXT] =
+    TextDrawCreate          (238.0, 437.0, "Misc");
+    TextDrawBackgroundColor (g_ToolbarTextdraw[TD_TOOLBAR_MISC_TEXT], 255);
+    TextDrawFont            (g_ToolbarTextdraw[TD_TOOLBAR_MISC_TEXT], 1);
+    TextDrawLetterSize      (g_ToolbarTextdraw[TD_TOOLBAR_MISC_TEXT], 0.2, 1.0);
+    TextDrawColor           (g_ToolbarTextdraw[TD_TOOLBAR_MISC_TEXT], RGBA_WHITE);
+    TextDrawSetOutline      (g_ToolbarTextdraw[TD_TOOLBAR_MISC_TEXT], 1);
+
+    g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY] =
+    TextDrawCreate          (258.0, 384.0, "Categories");
+    TextDrawAlignment       (g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY], 2);
+    TextDrawBackgroundColor (g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY], 255);
+    TextDrawFont            (g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY], 1);
+    TextDrawLetterSize      (g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY], 0.2, 1.0);
+    TextDrawColor           (g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY], RGBA_WHITE);
+    TextDrawSetOutline      (g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY], 1);
+    TextDrawSetProportional (g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY], 1);
+    TextDrawUseBox          (g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY], 1);
+    TextDrawBoxColor        (g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY], 100);
+    TextDrawTextSize        (g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY], 10.0, 42.0);
+    TextDrawSetSelectable   (g_ToolbarTextdraw[TD_TOOLBAR_MISC_CATEGORY], 1);
+
+    g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO] =
+    TextDrawCreate          (258.0, 371.0, "Info");
+    TextDrawAlignment       (g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO], 2);
+    TextDrawBackgroundColor (g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO], 255);
+    TextDrawFont            (g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO], 1);
+    TextDrawLetterSize      (g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO], 0.2, 1.0);
+    TextDrawColor           (g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO], RGBA_WHITE);
+    TextDrawSetOutline      (g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO], 1);
+    TextDrawSetProportional (g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO], 1);
+    TextDrawUseBox          (g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO], 1);
+    TextDrawBoxColor        (g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO], 100);
+    TextDrawTextSize        (g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO], 10.0, 42.0);
+    TextDrawSetSelectable   (g_ToolbarTextdraw[TD_TOOLBAR_MISC_INFO], 1);
 }
 
 DestroyToolbarTextdraws() {

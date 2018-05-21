@@ -43,6 +43,13 @@ GetPlayerEditAttached(playerid) {
     return INVALID_PLAYERATTACH_INDEX;
 }
 
+GetPlayerEditBuilding(playerid) {
+    if( g_PlayerData[playerid][PLAYER_DATA_EDIT_IDTYPE] == ID_TYPE_BUILDING ) {
+        return g_PlayerData[playerid][PLAYER_DATA_EDIT_ID];
+    }
+    return INVALID_BUILDING_ID;
+}
+
 GetPlayerNearestObject(playerid, Float:max_distance) {
     new
         near_objectid = INVALID_OBJECT_ID,
