@@ -6,7 +6,6 @@ GetMaterialSizeName(materialsize, name[], name_size) {
     } else {
         format(name, name_size, "Unknown Material Size (%i)", materialsize);
     }
-    return name;
 }
 
 GetMaterialSize(search[]) {
