@@ -7,12 +7,12 @@ http://forum.sa-mp.com/showthread.php?t=648101
 
 ## Usage
 
-Simply grab and run:
+Build with:
 
 ```bash
-sampctl package get fusez/Map-Editor-V3
-cd Map-Editor-V3
-sampctl package run
+sampctl package ensure
+sampctl package build
 ```
 
-And connect to `localhost:7777`.
+Running with `sampctl package run` does not work yet as the script is a
+filterscript not a generic script.
