@@ -153,17 +153,80 @@ CopyObject(copy_objectid, bool:copy_attachto = true) {
     }
 
     new
-        modelid = GetObjectModel(copy_objectid),
-        Float:x,
-        Float:y,
-        Float:z,
-        Float:rx,
-        Float:ry,
-        Float:rz
+               modelid = GetObjectModel(copy_objectid),
+        Float: x,
+        Float: y,
+        Float: z,
+        Float: rx,
+        Float: ry,
+        Float: rz,
+               attachtoid = g_ObjectData[copy_objectid-1][OBJECT_DATA_ATTACH_ID],
+        bool:  isvalid_attachto_object,
+        bool:  isvalid_attachto_vehicle
     ;
 
-    GetObjectPos(copy_objectid, x, y, z);
-    GetObjectRot(copy_objectid, rx, ry, rz);
+    switch( g_ObjectData[copy_objectid-1][OBJECT_DATA_ATTACH_IDTYPE] ) {
+        case ID_TYPE_OBJECT: {
+            isvalid_attachto_object  = IsValidObject(attachtoid)  ? true : false;
+        }
+        case ID_TYPE_VEHICLE: {
+            isvalid_attachto_vehicle = IsValidVehicle(attachtoid) ? true : false;
+        }
+    }
+
+    if( isvalid_attachto_object || isvalid_attachto_vehicle ) {
+        new
+            Float: att_x,
+            Float: att_y,
+            Float: att_z,
+            Float: att_rx,
+            Float: att_ry,
+            Float: att_rz,
+            Float: off_x,
+            Float: off_y,
+            Float: off_z,
+            Float: off_rx,
+            Float: off_ry,
+            Float: off_rz
+        ;
+
+        if( isvalid_attachto_object ) {
+            GetObjectPos(attachtoid, att_x,  att_y,  att_z);
+            GetObjectRot(attachtoid, att_rx, att_ry, att_rz);
+        } else if( isvalid_attachto_vehicle ) {
+            GetVehiclePos(attachtoid, att_x, att_y, att_z);
+            GetVehicleZAngle(attachtoid, att_rz);
+        }
+
+        off_x  = g_ObjectData[copy_objectid-1][OBJECT_DATA_ATTACH_X ];
+        off_y  = g_ObjectData[copy_objectid-1][OBJECT_DATA_ATTACH_Y ];
+        off_z  = g_ObjectData[copy_objectid-1][OBJECT_DATA_ATTACH_Z ];
+        off_rx = g_ObjectData[copy_objectid-1][OBJECT_DATA_ATTACH_RX];
+        off_ry = g_ObjectData[copy_objectid-1][OBJECT_DATA_ATTACH_RY];
+        off_rz = g_ObjectData[copy_objectid-1][OBJECT_DATA_ATTACH_RZ];
+
+        PositionFromOffset(
+            att_x,
+            att_y,
+            att_z,
+            att_rx,
+            att_ry,
+            att_rz,
+            off_x,
+            off_y,
+            off_z,
+            x,
+            y,
+            z
+        );
+
+        rx = att_rx + off_rx;
+        ry = att_ry + off_ry;
+        rz = att_rz + off_rz;
+    } else {
+        GetObjectPos(copy_objectid, x, y, z);
+        GetObjectRot(copy_objectid, rx, ry, rz);
+    }
 
     new paste_objectid = CreateObject(modelid, x, y, z, rx, ry, rz);
     if( paste_objectid == INVALID_OBJECT_ID ) {
@@ -187,7 +250,6 @@ CopyObject(copy_objectid, bool:copy_attachto = true) {
     g_ObjectData[paste_objectid-1][OBJECT_DATA_MEMORY_RZ] = g_ObjectData[copy_objectid-1][OBJECT_DATA_MEMORY_RZ];
 
     if( copy_attachto ) {
-        new attachtoid = g_ObjectData[copy_objectid-1][OBJECT_DATA_ATTACH_ID];
         if( MigrateObjectAttachData(copy_objectid, paste_objectid, attachtoid) ) {
             ApplyObjectAttachData(paste_objectid);
         }

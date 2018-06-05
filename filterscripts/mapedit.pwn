@@ -265,7 +265,7 @@ public OnFilterScriptExit() {
 
 
 public OnPlayerConnect(playerid) {
-    DefaultPlayerData(playerid);
+	DefaultPlayerData(playerid);
     EnablePlayerCameraTarget(playerid, true); // to enable look-selecting vehicles, objects, actors
 
     #if defined core_OnPlayerConnect

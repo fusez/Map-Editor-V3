@@ -89,7 +89,7 @@ DestroyGenericBuildList() {
 
 CreatePlayerBuildList(playerid) {
     g_BuildListPTD[playerid][BUILDLIST_PTD_CAPTION] =
-    CreatePlayerTextDraw          (playerid, 4.0, 127.0, "Building List");
+    CreatePlayerTextDraw          (playerid, 4.0, 127.0, "Buildings");
     PlayerTextDrawBackgroundColor (playerid, g_BuildListPTD[playerid][BUILDLIST_PTD_CAPTION], 255);
     PlayerTextDrawFont            (playerid, g_BuildListPTD[playerid][BUILDLIST_PTD_CAPTION], 0);
     PlayerTextDrawLetterSize      (playerid, g_BuildListPTD[playerid][BUILDLIST_PTD_CAPTION], 0.5, 2.0);
@@ -367,7 +367,7 @@ LoadBuildListRowData(playerid) {
 ShowBuildListDialog(playerid, dialogid) {
     switch( dialogid ) {
         case DIALOGID_BUILDLIST_PAGE: {
-            g_DialogCaption = "Building List: Page";
+            g_DialogCaption = "Buildings: Page";
             format(g_DialogInfo, sizeof g_DialogInfo, "Page: %i / %i", g_BuildListData[playerid][BUILDLIST_DATA_PAGE] + 1, MAX_BUILDLIST_PAGE + 1);
             ShowPlayerDialog(playerid, dialogid, DIALOG_STYLE_INPUT, g_DialogCaption, g_DialogInfo, "Enter", "Cancel");
         }
@@ -380,7 +380,7 @@ ShowBuildListDialog(playerid, dialogid) {
             new modelid = g_BuildingData[buildingid][BUILDING_DATA_MODEL];
             GetModelName(modelid, g_ModelString, sizeof g_ModelString);
 
-            g_DialogCaption = "Building List: Remove Building";
+            g_DialogCaption = "Buildings: Remove Building";
             format(g_DialogInfo, sizeof g_DialogInfo, "\
                 Building ID:\t%i\n\
                 Model ID:   \t%i\n\
@@ -401,7 +401,7 @@ ShowBuildListDialog(playerid, dialogid) {
             new modelid = g_BuildingData[buildingid][BUILDING_DATA_MODEL];
             GetModelName(modelid, g_ModelString, sizeof g_ModelString);
 
-            g_DialogCaption = "Building List: Recreate Building";
+            g_DialogCaption = "Buildings: Recreate Building";
             format(g_DialogInfo, sizeof g_DialogInfo, "\
                 Building ID:\t%i\n\
                 Model ID:   \t%i\n\
