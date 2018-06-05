@@ -362,3 +362,7 @@ public OnPlayerClickMap(playerid, Float:fX, Float:fY, Float:fZ) {
 #include "mapedit/building/call.pwn"
 #include "mapedit/buildlist/call.pwn"
 #include "mapedit/printsuccess/call.pwn" // has to be at the end of callback list, prints a message if called
+
+main() {
+    //
+}

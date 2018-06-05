@@ -1,0 +1,11 @@
+{
+	"user": "fusez",
+	"repo": "Map-Editor-V3",
+	"entry": "filterscripts/mapedit.pwn",
+	"output": "filterscripts/mapedit.amx",
+	"dependencies": [
+		"sampctl/samp-stdlib",
+		"maddinat0r/sscanf",
+		"oscar-broman/strlib"
+	]
+}
