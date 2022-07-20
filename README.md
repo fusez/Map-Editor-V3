@@ -101,3 +101,6 @@ public OnGameModeInit() {
 * Map Editor
   * [GitHub Download](https://github.com/fusez/Map-Editor-V3/archive/master.zip)
   * [GitHub Page](https://github.com/fusez/Map-Editor-V3)
+* Map Editor V3 Building Migrator Database Tool **(Optional)**
+    * [GitHub Download](https://github.com/fusez/Map-Editor-V3-BuildMigrator/archive/refs/heads/master.zip)
+    * [GitHub Page](https://github.com/fusez/Map-Editor-V3-BuildMigrator)
